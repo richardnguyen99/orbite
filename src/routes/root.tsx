@@ -9,7 +9,7 @@ import * as React from "react";
 import { CFC } from "@typings/react";
 import Layout from "@components/Layout";
 
-const App: CFC<HTMLDivElement> = () => {
+const Root: CFC<HTMLDivElement> = () => {
   return (
     <Layout>
       <h1>Orbite</h1>
@@ -17,4 +17,4 @@ const App: CFC<HTMLDivElement> = () => {
   );
 };
 
-export default App;
+export default Root;

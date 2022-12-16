@@ -13,6 +13,8 @@
 - Add module import/export system to file structure.
 - Add Layout for consistent template between pages.
 - Add Dark mode setup in `index.html`.
+- Add `react-router`.
+- Add router for page navigation.
 
 ## 0.1.1
 
