@@ -3,6 +3,11 @@
 ## 0.1.2
 
 - Add [TailwindCSS](https://tailwindcss.com) for styling.
+- Remove generated files by Vite.
+- Add logo.
+- Add module aliases for Vite config and Typescript config.
+- Update to the new title.
+- Add global configurations for typing React components written with Typescript.
 
 ## 0.1.1
 
