@@ -1,7 +1,7 @@
 {
   "name": "orbite",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Take TODO application to the MOON!",
   "author": {
     "email": "richard@richardhnguyen.com",
