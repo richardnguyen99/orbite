@@ -13,7 +13,9 @@ const Layout: CFC<HTMLDivElement> = ({ children, ...rest }) => {
     <main {...rest}>
       <Navbar>
         <Container>
-          <Navbar.Wrapper>Hello, World</Navbar.Wrapper>
+          <Navbar.Wrapper>
+            <Navbar.Brand />
+          </Navbar.Wrapper>
         </Container>
       </Navbar>
       {children}

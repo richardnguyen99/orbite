@@ -15,6 +15,7 @@
 - Add Dark mode setup in `index.html`.
 - Add `react-router`.
 - Add router for page navigation.
+- Add Brand component for navigating to root application.
 
 ## 0.1.1
 
