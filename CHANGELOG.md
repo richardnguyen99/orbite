@@ -8,6 +8,11 @@
 - Add module aliases for Vite config and Typescript config.
 - Update to the new title.
 - Add global configurations for typing React components written with Typescript.
+- Add Navbar component for page navigation.
+- Add Container for centralizing content.
+- Add module import/export system to file structure.
+- Add Layout for consistent template between pages.
+- Add Dark mode setup in `index.html`.
 
 ## 0.1.1
 

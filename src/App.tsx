@@ -7,12 +7,13 @@
 import * as React from "react";
 
 import { CFC } from "@typings/react";
+import Layout from "@components/Layout";
 
 const App: CFC<HTMLDivElement> = () => {
   return (
-    <div>
-      <h1>Orbit</h1>
-    </div>
+    <Layout>
+      <h1>Orbite</h1>
+    </Layout>
   );
 };
 
