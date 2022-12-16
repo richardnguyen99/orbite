@@ -1,5 +1,9 @@
 # Orbite Changelog
 
+## 0.1.2
+
+- Add [TailwindCSS](https://tailwindcss.com) for styling.
+
 ## 0.1.1
 
 - Add `husky` to check commits before pushing.

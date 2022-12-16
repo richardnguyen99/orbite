@@ -1,4 +1,11 @@
+/**
+ * Main application for Orbite.
+ *
+ * @author Richard Nguyen <richard@richardhnguyen.com>
+ */
+
 import { useState } from "react";
+
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
