@@ -18,6 +18,7 @@
 - Add Brand component for navigating to root application.
 - Add About and Setting routes.
 - Add NavbarNav and NavbarLink for routing.
+- Add Modal for Navbar Dropdown content.
 
 ## 0.1.1
 

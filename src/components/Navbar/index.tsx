@@ -9,6 +9,11 @@ import { CFC } from "@typings/react";
 import NavbarWrapper from "./Wrapper";
 import NavbarBrand from "./Brand";
 import NavbarNav from "./Nav";
+import NavbarLink from "./Link";
+import NavbarCollapse from "./Collapse";
+import NavbarMobile from "./Mobile";
+import NavbarDropdownButton from "./DropdownButton";
+import NavbarModal from "./Modal";
 
 const Navbar: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
@@ -25,4 +30,9 @@ export default Object.assign(Navbar, {
   Wrapper: NavbarWrapper,
   Brand: NavbarBrand,
   Nav: NavbarNav,
+  Link: NavbarLink,
+  Collapse: NavbarCollapse,
+  Mobile: NavbarMobile,
+  DropdownButton: NavbarDropdownButton,
+  Modal: NavbarModal,
 });

@@ -4,11 +4,7 @@
  * @author Richard Nguyen <richard@richardhnguyen.com>
  */
 
-import {
-  LogoGithubIcon,
-  MarkGithubIcon,
-  TerminalIcon,
-} from "@primer/octicons-react";
+import { LogoGithubIcon, XIcon } from "@primer/octicons-react";
 
 import { CFC } from "@typings/react";
 import Navbar from "./Navbar";
@@ -16,6 +12,7 @@ import Container from "./Container";
 import Icon from "./Icon";
 
 import type { NavItemProps } from "./Navbar/types";
+import NavbarDropdownButton from "./Navbar/DropdownButton";
 
 const navItems: NavItemProps[] = [
   {
@@ -46,6 +43,9 @@ const Layout: CFC<HTMLDivElement> = ({ children, ...rest }) => {
               <Navbar.Nav items={navItems} />
               <Navbar.Nav items={rightnavItems} right />
             </div>
+            <Navbar.Mobile>
+              <NavbarDropdownButton />
+            </Navbar.Mobile>
           </Navbar.Wrapper>
         </Container>
       </Navbar>

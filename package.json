@@ -25,6 +25,8 @@
     "test": "echo \"There is no test available at this moment!\""
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.7",
+    "@heroicons/react": "^2.0.13",
     "@primer/octicons-react": "^17.10.0",
     "classnames": "^2.3.2",
     "localforage": "^1.10.0",
