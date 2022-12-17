@@ -16,6 +16,8 @@
 - Add `react-router`.
 - Add router for page navigation.
 - Add Brand component for navigating to root application.
+- Add About and Setting routes.
+- Add NavbarNav and NavbarLink for routing.
 
 ## 0.1.1
 

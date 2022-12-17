@@ -13,7 +13,7 @@ const NavbarBrand: CFC<HTMLAnchorElement> = ({ ...rest }) => {
     <NavLink
       {...rest}
       to="/"
-      className="mr-3 w-auto flex-none overflow-hidden "
+      className="mr-4 lg:mr-8 w-auto flex-none overflow-hidden "
     >
       <img
         src="/brand.png"

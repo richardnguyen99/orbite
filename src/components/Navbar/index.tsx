@@ -8,6 +8,7 @@
 import { CFC } from "@typings/react";
 import NavbarWrapper from "./Wrapper";
 import NavbarBrand from "./Brand";
+import NavbarNav from "./Nav";
 
 const Navbar: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
@@ -23,4 +24,5 @@ const Navbar: CFC<HTMLDivElement> = ({ children, ...rest }) => {
 export default Object.assign(Navbar, {
   Wrapper: NavbarWrapper,
   Brand: NavbarBrand,
+  Nav: NavbarNav,
 });

@@ -8,6 +8,19 @@ import { CFC } from "@typings/react";
 import Navbar from "./Navbar";
 import Container from "./Container";
 
+import type { NavItemProps } from "./Navbar/types";
+
+const navItems: NavItemProps[] = [
+  {
+    text: "About",
+    to: "/about",
+  },
+  {
+    text: "Setting",
+    to: "/setting",
+  },
+];
+
 const Layout: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
     <main {...rest}>
@@ -15,6 +28,7 @@ const Layout: CFC<HTMLDivElement> = ({ children, ...rest }) => {
         <Container>
           <Navbar.Wrapper>
             <Navbar.Brand />
+            <Navbar.Nav items={navItems} />
           </Navbar.Wrapper>
         </Container>
       </Navbar>
