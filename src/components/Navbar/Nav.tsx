@@ -13,19 +13,23 @@ import NavLink from "./Link";
 
 const NavbarNav: CFC<HTMLDivElement, NavProps> = ({
   children,
+  right = false,
   items,
   ...rest
 }) => {
+  const getClassNames = () =>
+    classNames(
+      "text-lg leading-6 font-semibold text-neutral-700 dark:text-slate-200",
+      {
+        "ml-auto": right,
+      }
+    );
+
   return (
-    <nav
-      {...rest}
-      className={classNames(
-        "text-lg leading-6 font-semibold text-neutral-700 dark:text-slate-200"
-      )}
-    >
-      <ul className="flex space-x-6">
-        {items.map(({ to, text }, idx) => (
-          <NavLink to={to} key={idx} text={text} />
+    <nav {...rest} className={getClassNames()}>
+      <ul className="flex space-x-2">
+        {items.map(({ icon, to, href, text }, idx) => (
+          <NavLink to={to} key={idx} icon={icon} text={text} href={href} />
         ))}
       </ul>
     </nav>

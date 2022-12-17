@@ -9,12 +9,14 @@ import * as React from "react";
 import { CFC } from "@typings/react";
 
 export interface NavItemProps {
-  icon?: CFC<HTMLOrSVGElement>;
-  text: string | React.ReactNode;
-  to: string;
+  icon?: React.ReactElement;
+  text?: string | React.ReactNode;
+  to?: string;
+  href?: string;
   tag?: CFC<HTMLSpanElement>;
 }
 
 export interface NavProps {
   items: NavItemProps[];
+  right?: boolean;
 }

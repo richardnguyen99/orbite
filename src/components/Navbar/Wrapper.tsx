@@ -9,7 +9,7 @@ import { CFC } from "@typings/react";
 
 const NavbarWrapper: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
-    <div {...rest} className="py-4 lg:px-8">
+    <div {...rest} className="py-4 px-4 lg:px-8">
       <div className="relative flex items-center">{children}</div>
     </div>
   );

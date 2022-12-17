@@ -11,8 +11,8 @@ import type { NavItemProps } from "./types";
 const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   to,
   icon,
-  tag,
   text,
+  href,
   ...rest
 }) => {
   const defaultClassNames = () =>
@@ -21,19 +21,43 @@ const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   const activeClassNames = () =>
     classNames("text-violet-600 group-hover:text-violet-700");
 
-  return (
-    <li
-      {...rest}
-      className="group list-none py-1 px-2 rounded-md hover:bg-neutral-300 hover:dark:bg-neutral-800"
-    >
+  const Child = () => (
+    <div className="flex space-x-2 items-center">
+      {icon || null}
+      {text && <p>{text}</p>}
+    </div>
+  );
+
+  const Router = () =>
+    to ? (
       <BaseNavLink
         to={to}
         className={({ isActive }) =>
           isActive ? activeClassNames() : defaultClassNames()
         }
       >
-        {text}
+        <Child />
       </BaseNavLink>
+    ) : null;
+
+  const Anchor = () =>
+    href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className={defaultClassNames()}
+      >
+        <Child />
+      </a>
+    ) : null;
+
+  return (
+    <li
+      {...rest}
+      className="group list-none py-2 px-2 rounded-md hover:bg-neutral-300 hover:dark:bg-neutral-800 "
+    >
+      {href ? <Anchor /> : <Router />}
     </li>
   );
 };
