@@ -16,28 +16,36 @@ export type ModalItemProps = Omit<NavItemProps, "tag"> & {
 };
 
 const iconBgColors = {
-  slate: "dark:group-hover:bg-slate-600",
-  gray: "dark:group-hover:bg-gray-600",
-  zinc: "dark:group-hover:bg-zinc-600",
-  neutral: "dark:group-hover:bg-neutral-600",
-  stone: "dark:group-hover:bg-stone-600",
-  red: "dark:group-hover:bg-red-600",
-  orange: "dark:group-hover:bg-orange-600",
-  amber: "dark:group-hover:bg-amber-600",
-  yellow: "dark:group-hover:bg-yellow-600",
-  lime: "dark:group-hover:bg-lime-600",
-  green: "dark:group-hover:bg-green-600",
-  emerald: "dark:group-hover:bg-emerald-600",
-  teal: "dark:group-hover:bg-teal-600",
-  cyan: "dark:group-hover:bg-cyan-600",
-  sky: "dark:group-hover:bg-sky-600",
-  blue: "dark:group-hover:bg-blue-600",
-  indigo: "dark:group-hover:bg-indigo-600",
-  violet: "dark:group-hover:bg-violet-600",
-  purple: "dark:group-hover:bg-purple-600",
-  fuchsia: "dark:group-hover:bg-fuchsia-600",
-  pink: "dark:group-hover:bg-pink-600",
-  rose: "dark:group-hover:bg-rose-600",
+  slate: "bg-slate-400 group-hover:bg-slate-500 dark:group-hover:bg-slate-600",
+  gray: "bg-gray-400 group-hover:bg-gray-500 dark:group-hover:bg-gray-600",
+  zinc: "bg-zinc-400 group-hover:bg-zinc-500 dark:group-hover:bg-zinc-600",
+  neutral:
+    "bg-neutral-400 group-hover:bg-neutral-500 dark:group-hover:bg-neutral-600",
+  stone: "bg-stone-400 group-hover:bg-stone-500 dark:group-hover:bg-stone-600",
+  red: "bg-red-400 group-hover:bg-red-500 dark:group-hover:bg-red-600",
+  orange:
+    "bg-orange-400 group-hover:bg-orange-500 dark:group-hover:bg-orange-600",
+  amber: "bg-amber-400 group-hover:bg-amber-500 dark:group-hover:bg-amber-600",
+  yellow:
+    "bg-yellow-400 group-hover:bg-yellow-500 dark:group-hover:bg-yellow-600",
+  lime: "bg-lime-400 group-hover:bg-lime-500 dark:group-hover:bg-lime-600",
+  green: "bg-green-400 group-hover:bg-green-500 dark:group-hover:bg-green-600",
+  emerald:
+    "bg-emerald-400 group-hover:bg-emerald-500 dark:group-hover:bg-emerald-600",
+  teal: "bg-teal-400 group-hover:bg-teal-500 dark:group-hover:bg-teal-600",
+  cyan: "bg-cyan-400 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-600",
+  sky: "bg-sky-400 group-hover:bg-sky-500 dark:group-hover:bg-sky-600",
+  blue: "bg-blue-400 group-hover:bg-blue-500 dark:group-hover:bg-blue-600",
+  indigo:
+    "bg-indigo-400 group-hover:bg-indigo-500 dark:group-hover:bg-indigo-600",
+  violet:
+    "bg-violet-400 group-hover:bg-violet-500 dark:group-hover:bg-violet-600",
+  purple:
+    "bg-purple-400 group-hover:bg-purple-500 dark:group-hover:bg-purple-600",
+  fuchsia:
+    "bg-fuchsia-400 group-hover:bg-fuchsia-500 dark:group-hover:bg-fuchsia-600",
+  pink: "bg-pink-400 group-hover:bg-pink-500 dark:group-hover:bg-pink-600",
+  rose: "bg-rose-400 group-hover:bg-rose-500 dark:group-hover:bg-rose-600",
 };
 
 const hoverTextColors = {
@@ -103,7 +111,7 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
   const Child = () => (
     <div className="flex space-x-2 items-center">
       <div
-        className={classNames("rounded-md p-2 mr-2", {
+        className={classNames("rounded-md p-2 mr-2 dark:bg-neutral-700", {
           [iconBgColors[color]]: true,
         })}
       >

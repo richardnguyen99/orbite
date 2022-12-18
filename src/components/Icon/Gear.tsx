@@ -11,38 +11,47 @@ import { CFC } from "@typings/react";
 import { IconProps } from "./types";
 
 const iconBgColors = {
-  slate: "dark:group-hover:fill-slate-200",
-  gray: "dark:group-hover:fill-gray-200",
-  zinc: "dark:group-hover:fill-zinc-200",
-  neutral: "dark:group-hover:fill-neutral-200",
-  stone: "dark:group-hover:fill-stone-200",
-  red: "dark:group-hover:fill-red-200",
-  orange: "dark:group-hover:fill-orange-200",
-  amber: "dark:group-hover:fill-amber-200",
-  yellow: "dark:group-hover:fill-yellow-200",
-  lime: "dark:group-hover:fill-lime-200",
-  green: "dark:group-hover:fill-green-200",
-  emerald: "dark:group-hover:fill-emerald-200",
-  teal: "dark:group-hover:fill-teal-200",
-  cyan: "dark:group-hover:fill-cyan-200",
-  sky: "dark:group-hover:fill-sky-200",
-  blue: "dark:group-hover:fill-blue-200",
-  indigo: "dark:group-hover:fill-indigo-200",
-  violet: "dark:group-hover:fill-violet-200",
-  purple: "dark:group-hover:fill-purple-200",
-  fuchsia: "dark:group-hover:fill-fuchsia-200",
-  pink: "dark:group-hover:fill-pink-200",
-  rose: "dark:group-hover:fill-rose-200",
+  slate:
+    "fill-slate-200 group-hover:fill-slate-300 dark:group-hover:fill-slate-200",
+  gray: "fill-gray-200 group-hover:fill-gray-300 dark:group-hover:fill-gray-200",
+  zinc: "fill-zinc-200 group-hover:fill-zinc-300 dark:group-hover:fill-zinc-200",
+  neutral:
+    "fill-neutral-200 group-hover:fill-neutral-300 dark:group-hover:fill-neutral-200",
+  stone:
+    "fill-stone-200 group-hover:fill-stone-300 dark:group-hover:fill-stone-200",
+  red: "fill-red-200 group-hover:fill-red-300 dark:group-hover:fill-red-200",
+  orange:
+    "fill-orange-200 group-hover:fill-orange-300 dark:group-hover:fill-orange-200",
+  amber:
+    "fill-amber-200 group-hover:fill-amber-300 dark:group-hover:fill-amber-200",
+  yellow:
+    "fill-yellow-200 group-hover:fill-yellow-300 dark:group-hover:fill-yellow-200",
+  lime: "fill-lime-200 group-hover:fill-lime-300 dark:group-hover:fill-lime-200",
+  green:
+    "fill-green-200 group-hover:fill-green-300 dark:group-hover:fill-green-200",
+  emerald:
+    "fill-emerald-200 group-hover:fill-emerald-300 dark:group-hover:fill-emerald-200",
+  teal: "fill-teal-200 group-hover:fill-teal-300 dark:group-hover:fill-teal-200",
+  cyan: "fill-cyan-200 group-hover:fill-cyan-300 dark:group-hover:fill-cyan-200",
+  sky: "fill-sky-200 group-hover:fill-sky-300 dark:group-hover:fill-sky-200",
+  blue: "fill-blue-200 group-hover:fill-blue-300 dark:group-hover:fill-blue-200",
+  indigo:
+    "fill-indigo-200 group-hover:fill-indigo-300 dark:group-hover:fill-indigo-200",
+  violet:
+    "fill-violet-200 group-hover:fill-violet-300 dark:group-hover:fill-violet-200",
+  purple:
+    "fill-purple-200 group-hover:fill-purple-300 dark:group-hover:fill-purple-200",
+  fuchsia:
+    "fill-fuchsia-200 group-hover:fill-fuchsia-300 dark:group-hover:fill-fuchsia-200",
+  pink: "fill-pink-200 group-hover:fill-pink-300 dark:group-hover:fill-pink-200",
+  rose: "fill-rose-200 group-hover:fill-rose-300 dark:group-hover:fill-rose-200",
 };
 
 const Gear: CFC<HTMLOrSVGElement, IconProps> = ({ color, active, ...rest }) => {
   const defaultClassName = () =>
-    classNames(
-      "fill-neutral-200 hover:fill-neutral-300 group-hover:fill-neutral-300 dark:fill-neutral-300 hover:fill-neutral-400 group-hover:fill-neutral-400",
-      {
-        [iconBgColors[color]]: true,
-      }
-    );
+    classNames("dark:fill-neutral-300", {
+      [iconBgColors[color]]: true,
+    });
 
   return (
     <svg
