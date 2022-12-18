@@ -10,6 +10,7 @@ import { Dialog, Transition } from "@headlessui/react";
 
 import { CFC } from "@typings/react";
 import { XIcon } from "@primer/octicons-react";
+import NavbarModalMenu from "./ModalMenu";
 
 export interface NavbarModalProps {
   opening: boolean;
@@ -41,7 +42,7 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black blur" />
+          <div className="fixed inset-0 bg-slate-400 dark:bg-black blur" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -55,7 +56,7 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full h-80 transform overflow-hidden rounded-2xl bg-neutral-300 dark:bg-neutral-900/90 p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-900/90 p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h1"
                   className="text-3xl font-medium leading-6 text-gray-900 dark:text-white"
@@ -70,20 +71,16 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
                     <button
                       ref={cancelButtonRef}
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-blue-200  dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
+                      className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-gray-300  dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
                       onClick={onCloseCallback}
                     >
                       <XIcon size={24} />
                     </button>
                   </div>
                 </Dialog.Title>
-                <hr className="my-4 h-[2px] bg-gray-200 border-0 dark:bg-neutral-800" />
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We&apos;ve
-                    sent you an email with all of the details of your order.
-                  </p>
-                </div>
+                <hr className="my-4 h-[2px] bg-gray-300 border-0 dark:bg-neutral-800" />
+
+                <NavbarModalMenu />
 
                 <div className="mt-4"></div>
               </Dialog.Panel>

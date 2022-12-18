@@ -95,3 +95,27 @@ export type CMouseEv<T = HTMLElement, E = MouseEvent> = React.MouseEvent<T, E>;
 export type CMouseEvCallback<T = HTMLElement, E = MouseEvent, R = void> = (
   e: CMouseEv<T, E>
 ) => R;
+
+export type Colors =
+  | "slate"
+  | "gray"
+  | "zinc"
+  | "neutral"
+  | "stone"
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
