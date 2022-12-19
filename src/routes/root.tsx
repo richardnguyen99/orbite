@@ -6,15 +6,13 @@
 
 import * as React from "react";
 
-import { CFC } from "@typings/react";
-import Layout from "@components/Layout";
+import type { CFC } from "@typings/react";
+import Components from "@components";
+
+const { Layout } = Components;
 
 const Root: CFC<HTMLDivElement> = () => {
-  return (
-    <Layout>
-      <h1>Orbite</h1>
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
 
 export default Root;

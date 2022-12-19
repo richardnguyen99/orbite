@@ -16,10 +16,10 @@ const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   ...rest
 }) => {
   const defaultClassNames = () =>
-    classNames("group-hover:text-violet-600 dark:group-hover:text-violet-700");
+    classNames("group-hover:text-indigo-500 dark:group-hover:text-indigo-400");
 
   const activeClassNames = () =>
-    classNames("text-violet-600 group-hover:text-violet-700");
+    classNames("text-indigo-500 group-hover:text-indigo-600");
 
   const Child = () => (
     <div className="flex space-x-2 items-center">
@@ -55,7 +55,7 @@ const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   return (
     <li
       {...rest}
-      className="group list-none py-2 px-2 rounded-md hover:bg-neutral-300 hover:dark:bg-neutral-800 "
+      className="group list-none py-2 px-2 rounded-md hover:bg-slate-300 hover:dark:bg-neutral-800 "
     >
       {href ? <Anchor /> : <Router />}
     </li>

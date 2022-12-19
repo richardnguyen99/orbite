@@ -16,7 +16,7 @@ const NavbarBrand: CFC<HTMLAnchorElement> = ({ ...rest }) => {
       className="mr-4 lg:mr-8 w-auto flex-none overflow-hidden "
     >
       <img
-        src="/brand.png"
+        src="/brand-gradient.png"
         className="opacity-100 hover:opacity-80"
         alt="Brand Logo"
       />

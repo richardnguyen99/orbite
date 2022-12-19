@@ -11,7 +11,11 @@ module.exports = {
       serif: ["Geogria", "ui-serif", "serif"],
       mono: ["ui-monospace", "Monaco", "monospace"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        "github": "#22272e"
+      },
+    },
   },
   plugins: [],
 };
