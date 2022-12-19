@@ -4,12 +4,11 @@
  * @author Richard Nguyen <richard@richardhnguyen.com>
  */
 
-import { LogoGithubIcon, XIcon } from "@primer/octicons-react";
+import { LogoGithubIcon } from "@primer/octicons-react";
 
 import { CFC } from "@typings/react";
 import Navbar from "./Navbar";
 import Container from "./Container";
-import Icon from "./Icon";
 
 import type { NavItemProps } from "./Navbar/types";
 import NavbarDropdownButton from "./Navbar/DropdownButton";
