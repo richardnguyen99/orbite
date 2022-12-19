@@ -10,47 +10,113 @@ import { CFC } from "@typings/react";
 
 import { IconProps } from "./types";
 
-const iconBgColors = {
-  slate:
-    "fill-slate-200 group-hover:fill-slate-300 dark:group-hover:fill-slate-200",
-  gray: "fill-gray-200 group-hover:fill-gray-300 dark:group-hover:fill-gray-200",
-  zinc: "fill-zinc-200 group-hover:fill-zinc-300 dark:group-hover:fill-zinc-200",
-  neutral:
-    "fill-neutral-200 group-hover:fill-neutral-300 dark:group-hover:fill-neutral-200",
-  stone:
-    "fill-stone-200 group-hover:fill-stone-300 dark:group-hover:fill-stone-200",
-  red: "fill-red-200 group-hover:fill-red-300 dark:group-hover:fill-red-200",
-  orange:
-    "fill-orange-200 group-hover:fill-orange-300 dark:group-hover:fill-orange-200",
-  amber:
-    "fill-amber-200 group-hover:fill-amber-300 dark:group-hover:fill-amber-200",
-  yellow:
-    "fill-yellow-200 group-hover:fill-yellow-300 dark:group-hover:fill-yellow-200",
-  lime: "fill-lime-200 group-hover:fill-lime-300 dark:group-hover:fill-lime-200",
-  green:
-    "fill-green-200 group-hover:fill-green-300 dark:group-hover:fill-green-200",
-  emerald:
-    "fill-emerald-200 group-hover:fill-emerald-300 dark:group-hover:fill-emerald-200",
-  teal: "fill-teal-200 group-hover:fill-teal-300 dark:group-hover:fill-teal-200",
-  cyan: "fill-cyan-200 group-hover:fill-cyan-300 dark:group-hover:fill-cyan-200",
-  sky: "fill-sky-200 group-hover:fill-sky-300 dark:group-hover:fill-sky-200",
-  blue: "fill-blue-200 group-hover:fill-blue-300 dark:group-hover:fill-blue-200",
-  indigo:
-    "fill-indigo-200 group-hover:fill-indigo-300 dark:group-hover:fill-indigo-200",
-  violet:
-    "fill-violet-200 group-hover:fill-violet-300 dark:group-hover:fill-violet-200",
-  purple:
-    "fill-purple-200 group-hover:fill-purple-300 dark:group-hover:fill-purple-200",
-  fuchsia:
-    "fill-fuchsia-200 group-hover:fill-fuchsia-300 dark:group-hover:fill-fuchsia-200",
-  pink: "fill-pink-200 group-hover:fill-pink-300 dark:group-hover:fill-pink-200",
-  rose: "fill-rose-200 group-hover:fill-rose-300 dark:group-hover:fill-rose-200",
+const lightFillColors = {
+  slate: "fill-slate-200",
+  gray: "fill-gray-200",
+  zinc: "fill-zinc-200",
+  neutral: "fill-neutral-200",
+  stone: "fill-stone-200",
+  red: "fill-red-200",
+  orange: "fill-orange-200",
+  amber: "fill-amber-200",
+  yellow: "fill-yellow-200",
+  lime: "fill-lime-200",
+  green: "fill-green-200",
+  emerald: "fill-emerald-200",
+  teal: "fill-teal-200",
+  cyan: "fill-cyan-200",
+  sky: "fill-sky-200",
+  blue: "fill-blue-200",
+  indigo: "fill-indigo-200",
+  violet: "fill-violet-200",
+  purple: "fill-purple-200",
+  fuchsia: "fill-fuchsia-200",
+  pink: "fill-pink-200",
+  rose: "fill-rose-200",
+};
+
+const lightOnHoverFillColors = {
+  slate: "group-hover:fill-slate-300",
+  gray: "group-hover:fill-gray-300",
+  zinc: "group-hover:fill-zinc-300",
+  neutral: "group-hover:fill-neutral-300",
+  stone: "group-hover:fill-stone-300",
+  red: "group-hover:fill-red-300",
+  orange: "group-hover:fill-orange-300",
+  amber: "group-hover:fill-amber-300",
+  yellow: "group-hover:fill-yellow-300",
+  lime: "group-hover:fill-lime-300",
+  green: "group-hover:fill-green-300",
+  emerald: "group-hover:fill-emerald-300",
+  teal: "group-hover:fill-teal-300",
+  cyan: "group-hover:fill-cyan-300",
+  sky: "group-hover:fill-sky-300",
+  blue: "group-hover:fill-blue-300",
+  indigo: "group-hover:fill-indigo-300",
+  violet: "group-hover:fill-violet-300",
+  purple: "group-hover:fill-purple-300",
+  fuchsia: "group-hover:fill-fuchsia-300",
+  pink: "group-hover:fill-pink-300",
+  rose: "group-hover:fill-rose-300",
+};
+
+const darkOnHoverFillColors = {
+  slate: "dark:group-hover:fill-slate-200",
+  gray: "dark:group-hover:fill-gray-200",
+  zinc: "dark:group-hover:fill-zinc-200",
+  neutral: "dark:group-hover:fill-neutral-200",
+  stone: "dark:group-hover:fill-stone-200",
+  red: "dark:group-hover:fill-red-200",
+  orange: "dark:group-hover:fill-orange-200",
+  amber: "dark:group-hover:fill-amber-200",
+  yellow: "dark:group-hover:fill-yellow-200",
+  lime: "dark:group-hover:fill-lime-200",
+  green: "dark:group-hover:fill-green-200",
+  emerald: "dark:group-hover:fill-emerald-200",
+  teal: "dark:group-hover:fill-teal-200",
+  cyan: "dark:group-hover:fill-cyan-200",
+  sky: "dark:group-hover:fill-sky-200",
+  blue: "dark:group-hover:fill-blue-200",
+  indigo: "dark:group-hover:fill-indigo-200",
+  violet: "dark:group-hover:fill-violet-200",
+  purple: "dark:group-hover:fill-purple-200",
+  fuchsia: "dark:group-hover:fill-fuchsia-200",
+  pink: "dark:group-hover:fill-pink-200",
+  rose: "dark:group-hover:fill-rose-200",
+};
+
+const darkOnActiveFillColors = {
+  slate: "dark:group-[.active]:fill-slate-200",
+  gray: "dark:group-[.active]:fill-gray-200",
+  zinc: "dark:group-[.active]:fill-zinc-200",
+  neutral: "dark:group-[.active]:fill-neutral-200",
+  stone: "dark:group-[.active]:fill-stone-200",
+  red: "dark:group-[.active]:fill-red-200",
+  orange: "dark:group-[.active]:fill-orange-200",
+  amber: "dark:group-[.active]:fill-amber-200",
+  yellow: "dark:group-[.active]:fill-yellow-200",
+  lime: "dark:group-[.active]:fill-lime-200",
+  green: "dark:group-[.active]:fill-green-200",
+  emerald: "dark:group-[.active]:fill-emerald-200",
+  teal: "dark:group-[.active]:fill-teal-200",
+  cyan: "dark:group-[.active]:fill-cyan-200",
+  sky: "dark:group-[.active]:fill-sky-200",
+  blue: "dark:group-[.active]:fill-blue-200",
+  indigo: "dark:group-[.active]:fill-indigo-200",
+  violet: "dark:group-[.active]:fill-violet-200",
+  purple: "dark:group-[.active]:fill-purple-200",
+  fuchsia: "dark:group-[.active]:fill-fuchsia-200",
+  pink: "dark:group-[.active]:fill-pink-200",
+  rose: "dark:group-[.active]:fill-rose-200",
 };
 
 const Gear: CFC<HTMLOrSVGElement, IconProps> = ({ color, active, ...rest }) => {
   const defaultClassName = () =>
     classNames("dark:fill-neutral-300", {
-      [iconBgColors[color]]: true,
+      [lightFillColors[color]]: true,
+      [lightOnHoverFillColors[color]]: true,
+      [darkOnHoverFillColors[color]]: true,
+      [darkOnActiveFillColors[color]]: true,
     });
 
   return (

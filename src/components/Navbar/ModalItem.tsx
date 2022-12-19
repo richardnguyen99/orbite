@@ -48,6 +48,31 @@ const iconBgColors = {
   rose: "bg-rose-400 group-hover:bg-rose-500 dark:group-hover:bg-rose-600",
 };
 
+const iconOnActiveBgColors = {
+  slate: "dark:group-[.active]:bg-slate-600",
+  gray: "dark:group-[.active]:bg-gray-600",
+  zinc: "dark:group-[.active]:bg-zinc-600",
+  neutral: "dark:group-[.active]:bg-neutral-600",
+  stone: "dark:group-[.active]:bg-stone-600",
+  red: "dark:group-[.active]:bg-red-600",
+  orange: "dark:group-[.active]:bg-orange-600",
+  amber: "dark:group-[.active]:bg-amber-600",
+  yellow: "dark:group-[.active]:bg-yellow-600",
+  lime: "dark:group-[.active]:bg-lime-600",
+  green: "dark:group-[.active]:bg-green-600",
+  emerald: "dark:group-[.active]:bg-emerald-600",
+  teal: "dark:group-[.active]:bg-teal-600",
+  cyan: "dark:group-[.active]:bg-cyan-600",
+  sky: "dark:group-[.active]:bg-sky-600",
+  blue: "dark:group-[.active]:bg-blue-600",
+  indigo: "dark:group-[.active]:bg-indigo-600",
+  violet: "dark:group-[.active]:bg-violet-600",
+  purple: "dark:group-[.active]:bg-purple-600",
+  fuchsia: "dark:group-[.active]:bg-fuchsia-600",
+  pink: "dark:group-[.active]:bg-pink-600",
+  rose: "dark:group-[.active]:bg-rose-600",
+};
+
 const hoverTextColors = {
   slate: "dark:group-hover:text-slate-600",
   gray: "dark:group-hover:text-gray-600",
@@ -73,29 +98,54 @@ const hoverTextColors = {
   rose: "dark:group-hover:text-rose-600",
 };
 
-const activeTextColors = {
-  slate: "dark:text-slate-600",
-  gray: "dark:text-gray-600",
-  zinc: "dark:text-zinc-600",
-  neutral: "dark:text-neutral-600",
-  stone: "dark:text-stone-600",
-  red: "dark:text-red-600",
-  orange: "dark:text-orange-600",
-  amber: "dark:text-amber-600",
-  yellow: "dark:text-yellow-600",
-  lime: "dark:text-lime-600",
-  green: "dark:text-green-600",
-  emerald: "dark:text-emerald-600",
-  teal: "dark:text-teal-600",
-  cyan: "dark:text-cyan-600",
-  sky: "dark:text-sky-600",
-  blue: "dark:text-blue-600",
-  indigo: "dark:text-indigo-600",
-  violet: "dark:text-violet-600",
-  purple: "dark:text-purple-600",
-  fuchsia: "dark:text-fuchsia-600",
-  pink: "dark:text-pink-600",
-  rose: "dark:text-rose-600",
+const activeLightTextColors = {
+  slate: "group-[.active]:text-slate-500",
+  gray: "group-[.active]:text-gray-500",
+  zinc: "group-[.active]:text-zinc-500",
+  neutral: "group-[.active]:text-neutral-500",
+  stone: "group-[.active]:text-stone-500",
+  red: "group-[.active]:text-red-500",
+  orange: "group-[.active]:text-orange-500",
+  amber: "group-[.active]:text-amber-500",
+  yellow: "group-[.active]:text-yellow-500",
+  lime: "group-[.active]:text-lime-500",
+  green: "group-[.active]:text-green-500",
+  emerald: "group-[.active]:text-emerald-500",
+  teal: "group-[.active]:text-teal-500",
+  cyan: "group-[.active]:text-cyan-500",
+  sky: "group-[.active]:text-sky-500",
+  blue: "group-[.active]:text-blue-500",
+  indigo: "group-[.active]:text-indigo-500",
+  violet: "group-[.active]:text-violet-500",
+  purple: "group-[.active]:text-purple-500",
+  fuchsia: "group-[.active]:text-fuchsia-500",
+  pink: "group-[.active]:text-pink-500",
+  rose: "group-[.active]:text-rose-500",
+};
+
+const activeDarkTextColors = {
+  slate: "dark:group-[.active]:text-slate-600",
+  gray: "dark:group-[.active]:text-gray-600",
+  zinc: "dark:group-[.active]:text-zinc-600",
+  neutral: "dark:group-[.active]:text-neutral-600",
+  stone: "dark:group-[.active]:text-stone-600",
+  red: "dark:group-[.active]:text-red-600",
+  orange: "dark:group-[.active]:text-orange-600",
+  amber: "dark:group-[.active]:text-amber-600",
+  yellow: "dark:group-[.active]:text-yellow-600",
+  lime: "dark:group-[.active]:text-lime-600",
+  green: "dark:group-[.active]:text-green-600",
+  emerald: "dark:group-[.active]:text-emerald-600",
+  teal: "dark:group-[.active]:text-teal-600",
+  cyan: "dark:group-[.active]:text-cyan-600",
+  sky: "dark:group-[.active]:text-sky-600",
+  blue: "dark:group-[.active]:text-blue-600",
+  indigo: "dark:group-[.active]:text-indigo-600",
+  violet: "dark:group-[.active]:text-violet-600",
+  purple: "dark:group-[.active]:text-purple-600",
+  fuchsia: "dark:group-[.active]:text-fuchsia-600",
+  pink: "dark:group-[.active]:text-pink-600",
+  rose: "dark:group-[.active]:text-rose-600",
 };
 
 const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
@@ -113,6 +163,7 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
       <div
         className={classNames("rounded-md p-2 mr-2 dark:bg-neutral-700", {
           [iconBgColors[color]]: true,
+          [iconOnActiveBgColors[color]]: true,
         })}
       >
         {icon && cloneElement(icon, { active: active, color })}
@@ -127,7 +178,8 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
         "group flex items-center lg:text-sm lg:leading-6 font-semibold  dark:text-gray-200",
         {
           [hoverTextColors[color]]: true,
-          [activeTextColors[color]]: isActive,
+          [activeDarkTextColors[color]]: isActive,
+          [activeLightTextColors[color]]: isActive,
         }
       );
     },
@@ -168,7 +220,12 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
   return (
     <li
       {...rest}
-      className="group rounded-md p-3 hover:bg-gray-300 dark:hover:bg-neutral-800/90 transition ease-in-out duration-150"
+      className={classNames(
+        "group rounded-md p-3 hover:bg-gray-300 dark:hover:bg-neutral-800/90 transition ease-in-out duration-150",
+        {
+          active: active,
+        }
+      )}
     >
       {href ? <Anchor /> : <Router />}
     </li>
