@@ -14,8 +14,9 @@ const Root: CFC<HTMLDivElement> = () => {
   return (
     <Layout>
       <Container>
-        <div className="mt-32" />
-        <Todo />
+        <div className="mt-16 px-4 lg:px-8">
+          <Todo />
+        </div>
       </Container>
     </Layout>
   );
