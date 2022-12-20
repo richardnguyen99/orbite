@@ -49,7 +49,7 @@ const TodoTitle: FC<TodoTitleProps & HTMLAttributes<HTMLHeadingElement>> = ({
 
       setTitle(capturedContent || "Todo");
     },
-    []
+    [initialTitle]
   );
 
   const getContentEditableClassNames = () => {
@@ -63,6 +63,7 @@ const TodoTitle: FC<TodoTitleProps & HTMLAttributes<HTMLHeadingElement>> = ({
     <h1
       ref={titleRef}
       {...args}
+      aria-label="Todo Title"
       data-initial-content={initialTitle}
       contentEditable={true}
       suppressContentEditableWarning={true}
