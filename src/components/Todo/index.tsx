@@ -3,7 +3,7 @@ import TodoTitle from "./Title";
 
 const Todo: CFC<HTMLDivElement> = ({ ...args }) => {
   return (
-    <div {...args}>
+    <div {...args} className="max-w-3xl mx-auto">
       <TodoTitle initialTitle="Todo" />
     </div>
   );
