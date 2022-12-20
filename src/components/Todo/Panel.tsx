@@ -2,6 +2,7 @@ import { HTMLAttributes, FC } from "react";
 import { ListUnorderedIcon, TagIcon } from "@primer/octicons-react";
 
 import TodoPanelButton from "./PanelButton";
+import TodoList from "./List";
 
 const TodoPanel: FC<HTMLAttributes<HTMLDivElement>> = ({ ...args }) => {
   return (
@@ -18,7 +19,7 @@ const TodoPanel: FC<HTMLAttributes<HTMLDivElement>> = ({ ...args }) => {
         </div>
       </div>
       <div className="flex items-center space-x-2 "></div>
-      <h3>Todo view</h3>
+      <TodoList />
     </div>
   );
 };
