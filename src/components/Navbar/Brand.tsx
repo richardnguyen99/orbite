@@ -13,13 +13,14 @@ const NavbarBrand: CFC<HTMLAnchorElement> = ({ ...rest }) => {
     <NavLink
       {...rest}
       to="/"
-      className="mr-4 lg:mr-8 w-auto flex-none overflow-hidden "
+      className="flex items-center text-gray-900 dark:text-white mr-4 lg:mr-8 w-auto flex-none overflow-hidden "
     >
       <img
-        src="/brand-gradient.png"
-        className="opacity-100 hover:opacity-80"
+        src="/orbite-blue.png"
+        className="opacity-100 hover:opacity-80 mr-4"
         alt="Brand Logo"
       />
+      <h1 className="text-4xl font-black">Orbite</h1>
     </NavLink>
   );
 };

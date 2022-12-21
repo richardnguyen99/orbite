@@ -27,7 +27,7 @@ const NavbarDropdownButton: CFC<HTMLButtonElement> = ({ ...args }) => {
       <button
         {...args}
         type="button"
-        className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-gray-300  dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
+        className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-gray-300  dark:hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
         onClick={onClickCallback}
       >
         <KebabHorizontalIcon size={24} />

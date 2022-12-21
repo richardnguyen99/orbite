@@ -161,7 +161,7 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
   const Child = () => (
     <div className="flex space-x-2 items-center">
       <div
-        className={classNames("rounded-md p-2 mr-2 dark:bg-neutral-700", {
+        className={classNames("rounded-md p-2 mr-2 dark:bg-slate-700", {
           [iconBgColors[color]]: true,
           [iconOnActiveBgColors[color]]: true,
         })}
@@ -221,7 +221,7 @@ const NavbarModalItem: CFC<HTMLLIElement, ModalItemProps> = ({
     <li
       {...rest}
       className={classNames(
-        "group rounded-md p-3 hover:bg-gray-300 dark:hover:bg-neutral-800/90 transition ease-in-out duration-150",
+        "group rounded-md p-3 hover:bg-gray-300 dark:hover:bg-slate-800/90 transition ease-in-out duration-150",
         {
           active: active,
         }

@@ -8,7 +8,7 @@ import { CFC } from "@typings/react";
 
 const Container: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
-    <div {...rest} className="max-w-7xl mx-auto">
+    <div {...rest} className="max-w-3xl mx-auto">
       {children}
     </div>
   );

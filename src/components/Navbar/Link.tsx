@@ -16,7 +16,7 @@ const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   ...rest
 }) => {
   const defaultClassNames = () =>
-    classNames("group-hover:text-indigo-500 dark:group-hover:text-indigo-400");
+    classNames("group-hover:text-blue-400/90 dark:group-hover:text-blue-400");
 
   const activeClassNames = () =>
     classNames("text-indigo-500 group-hover:text-indigo-600");
@@ -55,7 +55,7 @@ const NavLink: CFC<HTMLLIElement, NavItemProps> = ({
   return (
     <li
       {...rest}
-      className="group list-none py-2 px-2 rounded-md hover:bg-slate-300 hover:dark:bg-neutral-800 "
+      className="group list-none py-2 px-2 rounded-md hover:bg-slate-300 hover:dark:bg-slate-700/75 "
     >
       {href ? <Anchor /> : <Router />}
     </li>

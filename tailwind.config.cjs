@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         "github": "#22272e"
       },
+      backgroundImage: {
+        "horizontal-dark": "linear-gradient(90deg,rgba(53,55,64,0), rgb(30 41 59) 87.85%)"
+      }
     },
   },
   plugins: [],

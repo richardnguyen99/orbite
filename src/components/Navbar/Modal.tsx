@@ -56,7 +56,7 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-4"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-900/90 p-6 text-left align-middle shadow-2xl transition-all">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-neutral-200 dark:bg-slate-900/90 p-6 text-left align-middle shadow-2xl transition-all">
                 <Dialog.Title
                   as="h1"
                   className="text-3xl font-medium leading-6 text-gray-900 dark:text-white"
@@ -71,14 +71,14 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
                     <button
                       ref={cancelButtonRef}
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-gray-300  dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
+                      className="inline-flex justify-center rounded-md border border-transparent px-2 py-2 text-sm font-medium hover:bg-gray-300  dark:hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ml-auto"
                       onClick={onCloseCallback}
                     >
                       <XIcon size={24} />
                     </button>
                   </div>
                 </Dialog.Title>
-                <hr className="my-4 h-[2px] bg-gray-300 border-0 dark:bg-neutral-800" />
+                <hr className="my-4 h-[2px] bg-gray-300 border-0 dark:bg-slate-800" />
 
                 <NavbarModalMenu />
 
