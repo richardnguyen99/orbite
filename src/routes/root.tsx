@@ -6,9 +6,9 @@
 
 import type { CFC } from "@typings/react";
 import Components from "@components";
-import Container from "@components/Container";
+import { TaskProps } from "@components/Tasks/type";
 
-const { Layout, Section, Carousel } = Components;
+const { Layout, Section, Carousel, Container, Tasks } = Components;
 
 const tasks = [
   {
@@ -30,6 +30,30 @@ const tasks = [
   {
     taskName: "Special",
     amount: 8,
+  },
+];
+
+const taskItems: TaskProps[] = [
+  {
+    name: "Finish Genesis",
+    category: "Personal",
+    prior: 5,
+    finished: false,
+    notes: "Genesis is the first book in the Old Testament and in the Bible.",
+  },
+  {
+    name: "Implement Task component",
+    category: "Work",
+    prior: 3,
+    finished: false,
+    notes: "Task component is the essence of the Todo App",
+  },
+  {
+    name: "Buy Gifts",
+    category: "Chores",
+    prior: 2,
+    finished: true,
+    notes: "Buy gifts for the holiday",
   },
 ];
 
@@ -67,6 +91,9 @@ const Root: CFC<HTMLDivElement> = () => {
             <div className=" overflow-x-scroll">
               <div className="flex items-flex space-x-4"></div>
             </div>
+          </Section.Root>
+          <Section.Root id="root-tasks-section" title="TASKS">
+            <Tasks.Group initialValues={taskItems} />
           </Section.Root>
         </div>
       </Container>

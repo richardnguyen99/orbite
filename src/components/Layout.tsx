@@ -33,24 +33,26 @@ const rightnavItems: NavItemProps[] = [
 
 const Layout: CFC<HTMLDivElement> = ({ children, ...rest }) => {
   return (
-    <main {...rest}>
-      <Navbar>
-        <Container>
-          <Navbar.Wrapper>
-            <Navbar.Brand />
-            <div className="hidden md:flex md:w-full">
-              <Navbar.Nav items={navItems} />
-              <Navbar.Nav items={rightnavItems} right />
-            </div>
-            <Navbar.Mobile>
-              <NavbarDropdownButton />
-            </Navbar.Mobile>
-          </Navbar.Wrapper>
-        </Container>
-      </Navbar>
-      {children}
+    <>
+      <main {...rest} className="min-h-screen">
+        <Navbar>
+          <Container>
+            <Navbar.Wrapper>
+              <Navbar.Brand />
+              <div className="hidden md:flex md:w-full">
+                <Navbar.Nav items={navItems} />
+                <Navbar.Nav items={rightnavItems} right />
+              </div>
+              <Navbar.Mobile>
+                <NavbarDropdownButton />
+              </Navbar.Mobile>
+            </Navbar.Wrapper>
+          </Container>
+        </Navbar>
+        {children}
+      </main>
       <footer>Something</footer>
-    </main>
+    </>
   );
 };
 
