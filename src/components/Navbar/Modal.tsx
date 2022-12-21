@@ -56,14 +56,14 @@ const NavbarModal: CFC<HTMLDivElement, NavbarModalProps> = ({
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-4"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-neutral-200 dark:bg-slate-900/90 p-6 text-left align-middle shadow-2xl transition-all">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden rounded-2xl bg-slate-200 dark:bg-slate-900/90 p-6 text-left align-middle shadow-2xl transition-all">
                 <Dialog.Title
                   as="h1"
-                  className="text-3xl font-medium leading-6 text-gray-900 dark:text-white"
+                  className="text-3xl font-black leading-6 text-gray-900 dark:text-white"
                 >
                   <div className="flex items-center">
                     <p>
-                      <span className="text-transparent font-bold bg-clip-text bg-gradient-to-r to-violet-500 from-purple-800 mr-2">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r to-violet-500 from-purple-800 mr-2">
                         Orbite
                       </span>
                       Modal

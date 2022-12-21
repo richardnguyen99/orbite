@@ -1,5 +1,6 @@
 import { CFC } from "@typings/react";
 import { ReactElement, cloneElement } from "react";
+import CarouselCard from "./Card";
 
 export interface CarouselProps {
   //items: React.FunctionComponent<HTMLAttributes<HTMLDivElement> & object>[];
@@ -33,4 +34,6 @@ const Carousel: CFC<HTMLDivElement, CarouselProps> = ({ items, ...rest }) => {
   );
 };
 
-export default Carousel;
+export default Object.assign(Carousel, {
+  Card: CarouselCard,
+});
