@@ -1,30 +1,28 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Reorder } from "framer-motion";
 
 import { CFC } from "@typings/react";
 import { TaskProps } from "./type";
 import TaskItem from "./Item";
+import { TaskContext } from "./TaskProvider";
 
 export interface GroupProps {
-  initialValues: TaskProps[];
+  initialValues?: TaskProps[];
   onReorderCallback?: (newValues: TaskProps[]) => void;
 }
 
-const TaskGroup: CFC<HTMLDivElement, GroupProps> = ({
-  initialValues,
-  ...rest
-}) => {
-  const [values, setValues] = useState(initialValues);
+const TaskGroup: CFC<HTMLDivElement, GroupProps> = ({ ...rest }) => {
+  const taskContext = useContext(TaskContext);
 
   return (
     <div {...rest}>
       <Reorder.Group
         axis="y"
-        values={values}
-        onReorder={setValues}
+        values={taskContext.tasks}
+        onReorder={taskContext.onUpdateTasks}
         className="flex flex-col space-y-4"
       >
-        {values.map((item, _) => (
+        {taskContext.tasks.map((item, _) => (
           <TaskItem key={item.name} task={item} />
         ))}
       </Reorder.Group>

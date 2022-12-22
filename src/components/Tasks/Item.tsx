@@ -1,13 +1,21 @@
-import { CFC } from "@typings/react";
+import { useContext } from "react";
+import { CircleIcon, XIcon } from "@primer/octicons-react";
 import { Reorder, useMotionValue } from "framer-motion";
+import { CFC } from "@typings/react";
 
 import { TaskItemProps } from "./type";
 import { useShadow } from "./use-shadow";
-import { CircleIcon, XIcon } from "@primer/octicons-react";
+import { TaskContext } from "./TaskProvider";
 
 const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
+  const taskContext = useContext(TaskContext);
+
   const dy = useMotionValue(0);
   const boxShadow = useShadow(dy);
+
+  const onDeleteItem = () => {
+    taskContext.onDeleteTask(task.name);
+  };
 
   return (
     <Reorder.Item
@@ -19,7 +27,7 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
     >
       <CircleIcon size={24} className="mr-3" />
       <h3 className="text-xl font-bold">{task.name}</h3>
-      <button type="button" className="ml-auto">
+      <button type="button" className="ml-auto" onClick={onDeleteItem}>
         <XIcon size={24} />
       </button>
     </Reorder.Item>

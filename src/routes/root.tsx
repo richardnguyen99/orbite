@@ -7,6 +7,7 @@
 import type { CFC } from "@typings/react";
 import Components from "@components";
 import { TaskProps } from "@components/Tasks/type";
+import TaskProvider from "@components/Tasks/TaskProvider";
 
 const { Layout, Section, Carousel, Container, Tasks } = Components;
 
@@ -79,7 +80,9 @@ const Root: CFC<HTMLDivElement> = () => {
             </div>
           </Section.Root>
           <Section.Root id="root-tasks-section" title="TASKS">
-            <Tasks.Group initialValues={taskItems} />
+            <TaskProvider initialTasks={taskItems}>
+              <Tasks.Group />
+            </TaskProvider>
           </Section.Root>
         </div>
       </Container>
