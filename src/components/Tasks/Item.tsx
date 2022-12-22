@@ -7,6 +7,7 @@ import { TaskItemProps, TaskProps } from "./type";
 import { useShadow } from "./use-shadow";
 import { TaskContext } from "./TaskProvider";
 import TaskItemHeading from "./ItemHeading";
+import TaskItemCheckMark from "./ItemCheckMark";
 
 const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
   const taskContext = useContext(TaskContext);
@@ -34,7 +35,9 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
       style={{ boxShadow, y: dy }}
       className="relative flex items-center flex-shrink-0 w-full rounded-lg p-8 bg-slate-300 dark:bg-slate-900"
     >
-      <CircleIcon size={24} className="mr-3" />
+      <div className="mr-3">
+        <TaskItemCheckMark />
+      </div>
       <TaskItemHeading
         initialName={task.name}
         onNameChange={onUpdateItemName}
