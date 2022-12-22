@@ -27,6 +27,10 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
     onUpdateItem({ name: newName });
   };
 
+  const onUpdateItemStatus = (newStatus: boolean) => {
+    onUpdateItem({ finished: newStatus });
+  };
+
   return (
     <Reorder.Item
       as="li"
@@ -36,7 +40,10 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
       className="relative flex items-center flex-shrink-0 w-full rounded-lg p-8 bg-slate-300 dark:bg-slate-900"
     >
       <div className="mr-3">
-        <TaskItemCheckMark />
+        <TaskItemCheckMark
+          name={task.name}
+          onUpdateStatusCallback={onUpdateItemStatus}
+        />
       </div>
       <TaskItemHeading
         initialName={task.name}
