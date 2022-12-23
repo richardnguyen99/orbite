@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CircleIcon, XIcon } from "@primer/octicons-react";
+import { XIcon } from "@primer/octicons-react";
 import { Reorder, useMotionValue } from "framer-motion";
 import { CFC } from "@typings/react";
 

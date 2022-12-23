@@ -1,18 +1,11 @@
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { Reorder } from "framer-motion";
 
 import { CFC } from "@typings/react";
 import { TaskProps } from "./type";
 import TaskItem from "./Item";
 import { TaskContext } from "./TaskProvider";
-import { Menu, Transition } from "@headlessui/react";
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  LinkIcon,
-  PencilIcon,
-} from "@primer/octicons-react";
-import classNames from "classnames";
+
 import AddNewTaskButton from "./AddTaskButton";
 
 export interface GroupProps {
