@@ -7,6 +7,7 @@ import TaskItem from "./Item";
 import { TaskContext } from "./TaskProvider";
 
 import AddNewTaskButton from "./AddTaskButton";
+import Example from "./AddTaskCategoryDropdown";
 
 export interface GroupProps {
   initialValues?: TaskProps[];
@@ -25,6 +26,9 @@ const TaskGroup: CFC<HTMLDivElement, GroupProps> = ({ ...rest }) => {
           </h2>
         </div>
         <div className="mt-5 flex lg:mt-0 lg:ml-4">
+          <span className="sm:ml-3">
+            <Example />
+          </span>
           <span className="sm:ml-3">
             <AddNewTaskButton />
           </span>
