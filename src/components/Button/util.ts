@@ -101,8 +101,8 @@ export const primaryFocusRing = {
 
 export const buttonSize = {
   sm: "px-2 py-1 text-sm",
-  md: "px-3 py-1.5 text-sm",
-  base: "px-4 py-2 text-base font-medium",
+  md: "px-3 py-1.5 text-[15px] leading-[1.1]",
+  base: "px-4 py-2 text-[16px] leading-[1.2] font-medium",
   lg: "px-4.5 py-2.5 text-lg font-semibold",
   xl: "px-5 py-3 text-lg font-bold",
 };
