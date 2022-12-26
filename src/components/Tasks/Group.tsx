@@ -26,7 +26,7 @@ const TaskGroup: CFC<HTMLDivElement, GroupProps> = ({ ...rest }) => {
             Views
           </h2>
         </div>
-        <div className="mt-5 flex items-center lg:mt-0 lg:ml-4">
+        <div className="mt-5 flex items-center justify-between flex-row-reverse lg:flex-row lg:justify-start lg:space-x-2 lg:mt-0 lg:ml-4">
           <span className="sm:ml-3">
             <TaskActionDropdown />
           </span>
