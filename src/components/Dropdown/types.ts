@@ -58,7 +58,29 @@ export interface DropdownItemProps {
    *
    * @public
    */
-  text: string;
+  text?: string;
+
+  /**
+   * Simple text that briefly describes the item, same as the `text` prop. If
+   * both are passed in, text will override and be used to render.
+   */
+  children: string;
+
+  /**
+   * Controls what type of link, anchor tag or router link, to use in navigation.
+   *
+   * @default undefined
+   * @public
+   */
+  link?: "a" | "link";
+
+  /**
+   * Link URL if this item is a link (link prop is passed either "a" or "link").
+   *
+   * @default undefined
+   * @public
+   */
+  to?: string;
 
   /**
    * A callback to trigger some events if this item gets clicked.

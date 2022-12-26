@@ -6,6 +6,7 @@ import { DropdownProps } from "./types";
 import { combineClassName } from "../../utils/combine-classname";
 import DropdownToggler from "./Toggler";
 import DropdownList from "./List";
+import DropdownItem from "./Item";
 
 type WithTransitionProps = {
   animation: boolean;
@@ -96,4 +97,5 @@ const Dropdown: FC<DropdownProps & HTMLAttributes<HTMLDivElement>> = ({
 export default Object.assign(Dropdown, {
   Toggler: DropdownToggler,
   List: DropdownList,
+  Item: DropdownItem,
 });

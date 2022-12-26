@@ -8,6 +8,7 @@ import { TaskContext } from "./TaskProvider";
 
 import AddNewTaskButton from "./AddTaskButton";
 import Dropdown from "@components/Dropdown";
+import TaskActionDropdown from "./TaskActionDropdown";
 
 export interface GroupProps {
   initialValues?: TaskProps[];
@@ -27,10 +28,7 @@ const TaskGroup: CFC<HTMLDivElement, GroupProps> = ({ ...rest }) => {
         </div>
         <div className="mt-5 flex items-center lg:mt-0 lg:ml-4">
           <span className="sm:ml-3">
-            <Dropdown animation>
-              <Dropdown.Toggler>Actions</Dropdown.Toggler>
-              <Dropdown.List />
-            </Dropdown>
+            <TaskActionDropdown />
           </span>
           <span className="sm:ml-3">
             <AddNewTaskButton />
