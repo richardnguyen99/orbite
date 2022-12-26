@@ -64,7 +64,7 @@ export interface DropdownItemProps {
    * Simple text that briefly describes the item, same as the `text` prop. If
    * both are passed in, text will override and be used to render.
    */
-  children: string;
+  children: string | ReactNode;
 
   /**
    * Controls what type of link, anchor tag or router link, to use in navigation.

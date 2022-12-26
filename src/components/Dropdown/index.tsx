@@ -77,7 +77,7 @@ const Dropdown: FC<DropdownProps & HTMLAttributes<HTMLDivElement>> = ({
       as="div"
       {...rest}
       className={combineClassName(
-        "relative inline-block text-left",
+        "relative inline-block text-left w-full",
         rest.className
       )}
     >

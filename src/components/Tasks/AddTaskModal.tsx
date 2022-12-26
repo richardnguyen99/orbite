@@ -1,7 +1,9 @@
 /* eslint-disable quotes */
+import { Fragment, forwardRef, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { XIcon } from "@primer/octicons-react";
-import { Fragment, forwardRef, useRef } from "react";
+import { DotFillIcon, FeedStarIcon, XIcon } from "@primer/octicons-react";
+
+import Dropdown from "@components/Dropdown";
 
 interface Props {
   open: boolean;
@@ -10,7 +12,13 @@ interface Props {
 
 const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
   ({ open, setOpen }, ref) => {
+    const [category, setCategory] = useState("");
+
     const buttonRef = useRef<HTMLButtonElement>(null);
+
+    const getSelectionDisplayName = () => {
+      return category !== "" ? category : "Select a category";
+    };
 
     return (
       <Transition.Root show={open} as={Fragment}>
@@ -108,18 +116,60 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                         </div>
                         <div className="ml-auto w-5/12">
                           <label
-                            htmlFor="email"
+                            htmlFor="category"
                             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >
-                            Task name
+                            Category
                           </label>
-                          <input
-                            type="text"
-                            id="taskName"
-                            className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                            placeholder="name@flowbite.com"
-                            required
-                          />
+                          <Dropdown animation>
+                            <Dropdown.Toggler className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                              {getSelectionDisplayName()}
+                            </Dropdown.Toggler>
+                            <Dropdown.List>
+                              <div className="px-1.5 py-1.5">
+                                <Dropdown.Item
+                                  onClick={() => setCategory("Work")}
+                                >
+                                  <div className="inline-flex items-center">
+                                    <DotFillIcon className="fill-red-500 mr-3" />
+                                    Work
+                                  </div>
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                  onClick={() => setCategory("Personal")}
+                                >
+                                  <div className="inline-flex items-center">
+                                    <DotFillIcon className="fill-green-500 mr-3" />
+                                    Personal
+                                  </div>
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                  onClick={() => setCategory("School")}
+                                >
+                                  <div className="inline-flex items-center">
+                                    <DotFillIcon className="fill-sky-500 mr-3" />
+                                    School
+                                  </div>
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                  onClick={() => setCategory("Chores")}
+                                >
+                                  <div className="inline-flex items-center">
+                                    <DotFillIcon className="fill-indigo-500 mr-3" />
+                                    Chores
+                                  </div>
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                  onClick={() => setCategory("Special")}
+                                >
+                                  <div className="inline-flex items-center">
+                                    <FeedStarIcon className="fill-yellow-500 mr-3" />
+                                    Special
+                                  </div>
+                                </Dropdown.Item>
+                              </div>
+                            </Dropdown.List>
+                          </Dropdown>
                         </div>
                       </div>
                       <div className="mb-6">
