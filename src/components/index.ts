@@ -5,6 +5,7 @@ import Todo from "./Todo";
 import Section from "./Section";
 import Carousel from "./Carousel";
 import Tasks from "./Tasks";
+import Dropdown from "./Dropdown";
 
 const exportedComponents = {
   Navbar,
@@ -14,6 +15,7 @@ const exportedComponents = {
   Section,
   Carousel,
   Tasks,
+  Dropdown,
 };
 
 export default Object.assign("Components", exportedComponents);
