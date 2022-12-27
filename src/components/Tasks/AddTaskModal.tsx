@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { DotFillIcon, FeedStarIcon, XIcon } from "@primer/octicons-react";
 
 import Dropdown from "@components/Dropdown";
-import MyPopover from "@components/Popover";
+import Calendar from "@components/DatePicker";
 
 interface Props {
   open: boolean;
@@ -12,8 +12,9 @@ interface Props {
 }
 
 const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
-  ({ open, setOpen }, ref) => {
+  ({ open, setOpen }, _ref) => {
     const [category, setCategory] = useState("");
+    const [dueDate, setDueDate] = useState<Date>();
 
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -105,7 +106,13 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                           >
                             Task name
                           </label>
-                          <MyPopover />
+                          <Calendar
+                            displayName="Due date"
+                            selectedDate={dueDate}
+                            onSelectedDate={setDueDate}
+                            displaySelectedDate
+                            buttonClassName="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+                          />
                         </div>
                         <div className="ml-auto w-5/12">
                           <label
