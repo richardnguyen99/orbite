@@ -93,7 +93,12 @@ const Calendar: FC<CalendarProps & HTMLAttributes<HTMLDivElement>> = ({
               className={getInputClassName()}
               onKeyUp={onKeyUpCallback}
             />
-            <DayPicker {...dayPickerProps} mode="single" showOutsideDays />
+            <DayPicker
+              {...dayPickerProps}
+              mode="single"
+              showOutsideDays
+              onSelect={onSelectedDate}
+            />
           </div>
         </Popover.Panel>
       </Transition>

@@ -9,21 +9,36 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "react-day-picker/dist/style.css";
 
-import Routes from "./routes";
 import "./index.css";
+
+const RouteRoot = React.lazy(() => import("./routes/root"));
+const RouteAbout = React.lazy(() => import("./routes/about"));
+const RouteSetting = React.lazy(() => import("./routes/setting"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Routes.Root />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <RouteRoot />
+      </React.Suspense>
+    ),
   },
   {
     path: "/about",
-    element: <Routes.About />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <RouteAbout />
+      </React.Suspense>
+    ),
   },
   {
     path: "/setting",
-    element: <Routes.Setting />,
+    element: (
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <RouteSetting />
+      </React.Suspense>
+    ),
   },
 ]);
 
