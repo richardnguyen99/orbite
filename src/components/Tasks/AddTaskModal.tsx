@@ -13,6 +13,8 @@ import { DotFillIcon, FeedStarIcon, XIcon } from "@primer/octicons-react";
 import Dropdown from "@components/Dropdown";
 import Calendar from "@components/DatePicker";
 import { TaskContext } from "./TaskProvider";
+import { TaskProps } from "./type";
+import AddTaskNameInput from "./AddTaskNameInput";
 
 interface Props {
   open: boolean;
@@ -26,6 +28,15 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
     const [taskName, setTaskName] = useState("");
     const [category, setCategory] = useState("");
     const [dueDate, setDueDate] = useState<Date>();
+
+    const [task, setTask] = useState<TaskProps>({
+      name: "",
+      category: "",
+      prior: 1,
+      finished: false,
+      dueDate: undefined,
+      notes: "",
+    });
 
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -114,22 +125,9 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                   <div>
                     <form>
                       <div className="mb-6">
-                        <label
-                          htmlFor="email"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >
-                          Task name
-                        </label>
-                        <input
-                          type="text"
-                          id="taskName"
+                        <AddTaskNameInput
                           value={taskName}
-                          onChange={taskNameChangeHandler}
-                          className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                          placeholder={
-                            'Give your task a name. For example, "Finish The Half-blood Prince"'
-                          }
-                          required
+                          onUpdateValue={setTaskName}
                         />
                       </div>
                       <div className="flex flex-row items-center mb-6 h-full">
