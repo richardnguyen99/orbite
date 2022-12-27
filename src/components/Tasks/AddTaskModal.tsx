@@ -1,10 +1,18 @@
 /* eslint-disable quotes */
-import { Fragment, forwardRef, useRef, useState } from "react";
+import React, {
+  Fragment,
+  forwardRef,
+  useCallback,
+  useContext,
+  useRef,
+  useState,
+} from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { DotFillIcon, FeedStarIcon, XIcon } from "@primer/octicons-react";
 
 import Dropdown from "@components/Dropdown";
 import Calendar from "@components/DatePicker";
+import { TaskContext } from "./TaskProvider";
 
 interface Props {
   open: boolean;
@@ -13,14 +21,38 @@ interface Props {
 
 const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
   ({ open, setOpen }, _ref) => {
+    const taskContext = useContext(TaskContext);
+
+    const [taskName, setTaskName] = useState("");
     const [category, setCategory] = useState("");
     const [dueDate, setDueDate] = useState<Date>();
 
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const getSelectionDisplayName = () => {
-      return category !== "" ? category : "Select a category";
+      return category !== "" ? category : "Select one";
     };
+
+    const taskNameChangeHandler = useCallback(
+      (evt: React.ChangeEvent<HTMLInputElement>) => {
+        setTaskName(evt.target.value);
+      },
+      []
+    );
+
+    const addTaskHandler = useCallback(() => {
+      taskContext.onAddTask({
+        name: taskName,
+        category: category,
+        prior: 3,
+        notes: "",
+        finished: false,
+      });
+      setTaskName("");
+      setCategory("");
+      setDueDate(undefined);
+      setOpen(false);
+    }, [category, setOpen, taskContext, taskName]);
 
     return (
       <Transition.Root show={open} as={Fragment}>
@@ -43,7 +75,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
           </Transition.Child>
 
           <div className="fixed inset-0 z-2 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -53,7 +85,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform rounded-lg bg-slate-200 dark:bg-slate-900 text-left shadow-2xl shadow-gray-600 dark:shadow-gray-900 transition-all sm:my-8 sm:w-full sm:max-w-lg h-full p-8">
+                <Dialog.Panel className="relative transform rounded-lg bg-slate-200 dark:bg-slate-900 text-left shadow-2xl shadow-gray-600 dark:shadow-gray-900 transition-all sm:my-8 w-full lg:max-w-lg h-full p-8">
                   <Dialog.Title
                     as="h1"
                     className="text-3xl font-black leading-6 text-gray-900 dark:text-white"
@@ -91,9 +123,11 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                         <input
                           type="text"
                           id="taskName"
+                          value={taskName}
+                          onChange={taskNameChangeHandler}
                           className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
                           placeholder={
-                            'Give your task a name. For example, "Finish Close Button"'
+                            'Give your task a name. For example, "Finish The Half-blood Prince"'
                           }
                           required
                         />
@@ -205,6 +239,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                       </div>
                       <button
                         type="button"
+                        onClick={addTaskHandler}
                         className="inline-flex items-center rounded-md border border-transparent bg-green-600/80 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 "
                       >
                         <svg
