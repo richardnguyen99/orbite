@@ -18,11 +18,9 @@ const AddTaskNameInput: FC<AddTaskNameInputType> = ({
   const onChangeCallback = useCallback(
     (evt: ChangeEvent<HTMLInputElement>) => {
       const v = evt.target.value;
-      console.log(v.length);
 
       onUpdateValue(v.slice(0, LIMIT_WORD));
       setLength(Math.min(v.length, LIMIT_WORD));
-
       setDisabled(v.length >= LIMIT_WORD);
     },
     [onUpdateValue]
@@ -43,7 +41,7 @@ const AddTaskNameInput: FC<AddTaskNameInputType> = ({
   return (
     <>
       <label
-        htmlFor="email"
+        htmlFor="taskName"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >
         Task name
@@ -60,9 +58,18 @@ const AddTaskNameInput: FC<AddTaskNameInputType> = ({
         }
         required
       />
-      <p>Character length: {length}/50</p>
+      <p className="relative block mb-2 mt-2 text-sm font-medium text-slate-800 dark:text-slate-400 text-right">
+        Character length:{" "}
+        <span className="ml-2">{formatLength(length)}/50</span>
+      </p>
     </>
   );
 };
 
 export default AddTaskNameInput;
+
+const formatLength = (length: number) => {
+  if (length < 10) return `0${length}`;
+
+  return length.toString();
+};
