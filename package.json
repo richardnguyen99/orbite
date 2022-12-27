@@ -29,10 +29,12 @@
     "@heroicons/react": "^2.0.13",
     "@primer/octicons-react": "^17.10.0",
     "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
     "framer-motion": "^7.10.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-day-picker": "^8.4.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.5.0",
     "sort-by": "^1.2.0"

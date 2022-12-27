@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { DotFillIcon, FeedStarIcon, XIcon } from "@primer/octicons-react";
 
 import Dropdown from "@components/Dropdown";
+import MyPopover from "@components/Popover";
 
 interface Props {
   open: boolean;
@@ -51,7 +52,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-slate-200 dark:bg-slate-900 text-left shadow-2xl shadow-gray-600 dark:shadow-gray-900 transition-all sm:my-8 sm:w-full sm:max-w-lg h-full p-8">
+                <Dialog.Panel className="relative transform rounded-lg bg-slate-200 dark:bg-slate-900 text-left shadow-2xl shadow-gray-600 dark:shadow-gray-900 transition-all sm:my-8 sm:w-full sm:max-w-lg h-full p-8">
                   <Dialog.Title
                     as="h1"
                     className="text-3xl font-black leading-6 text-gray-900 dark:text-white"
@@ -104,15 +105,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                           >
                             Task name
                           </label>
-                          <input
-                            type="text"
-                            id="taskName"
-                            className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                            placeholder={
-                              'Give your task a name. For example, "Finish Close Button"'
-                            }
-                            required
-                          />
+                          <MyPopover />
                         </div>
                         <div className="ml-auto w-5/12">
                           <label
