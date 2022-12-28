@@ -10,6 +10,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "react-day-picker/dist/style.css";
 
 import "./index.css";
+import ToastProvider from "@components/Toast/Provider";
+import Toast from "@components/Toast";
 
 const RouteRoot = React.lazy(() => import("./routes/root"));
 const RouteAbout = React.lazy(() => import("./routes/about"));
@@ -44,6 +46,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ToastProvider>
+      <RouterProvider router={router} />
+      <Toast />
+    </ToastProvider>
   </React.StrictMode>
 );

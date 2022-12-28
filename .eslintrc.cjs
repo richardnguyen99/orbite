@@ -35,7 +35,7 @@ module.exports = {
   },
   plugins: ["react", "react-hooks", "import", "jsx-a11y", "@typescript-eslint"],
   rules: {
-    indent: ["error", 2],
+    indent: ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],

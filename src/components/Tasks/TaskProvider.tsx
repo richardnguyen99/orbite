@@ -1,8 +1,9 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 import { TaskProps } from "./type";
 import { CFC } from "@typings/react";
 import { useLocalStorage } from "@hooks/use-local-storage";
+import ToastContext from "@components/Toast/Context";
 
 export interface TaskProviderProps {
   initialTasks?: TaskProps[];
@@ -24,18 +25,31 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
   children,
   initialTasks = [],
 }) => {
+  const toastContext = useContext(ToastContext);
   const [tasks, setTasks] = useLocalStorage<TaskProps[]>("tasks", initialTasks);
 
   const addNewTask = (newTask: TaskProps) => {
-    const shouldAddNewTask = tasks.some(
-      (task) => task.name !== newTask.name || task.category !== newTask.category
-    );
+    const shouldAddNewTask =
+      tasks.some(
+        (task) =>
+          task.name !== newTask.name || task.category !== newTask.category
+      ) || tasks.length === 0;
 
     setTasks((prev) => (shouldAddNewTask ? [...prev, newTask] : prev));
+    toastContext.addNewToast({
+      id: "",
+      message: "Successfully added task",
+      type: "success",
+    });
   };
 
   const deleteTask = (taskName: string) => {
     setTasks((prev) => prev.filter((task) => task.name !== taskName));
+    toastContext.addNewToast({
+      id: "",
+      message: "Successfully deleted task",
+      type: "success",
+    });
   };
 
   const updateTask = (taskName: string, newTaskProps: Partial<TaskProps>) => {
