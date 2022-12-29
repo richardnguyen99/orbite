@@ -8,6 +8,7 @@ import type { CFC } from "@typings/react";
 import Components from "@components";
 import { TaskProps } from "@components/Tasks/type";
 import TaskProvider from "@components/Tasks/TaskProvider";
+import GreetingWithTime from "@features/GreetingWithTime";
 
 const { Layout, Section, Carousel, Container, Tasks } = Components;
 
@@ -64,7 +65,7 @@ const Root: CFC<HTMLDivElement> = () => {
       <div className="mt-12" />
       <Container>
         <div className="px-8">
-          <h1 className="text-6xl font-extrabold">Good Morning!</h1>
+          <GreetingWithTime />
           <Section.Root id="root-categories-section" title="CATEGORIES">
             <Carousel
               items={tasks.map((task, i) => (
