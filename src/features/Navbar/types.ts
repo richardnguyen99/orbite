@@ -10,7 +10,7 @@ import { CFC } from "@typings/react";
 
 export interface NavItemProps {
   icon?: React.ReactElement;
-  text?: string | React.ReactNode;
+  text?: string;
   to?: string;
   href?: string;
   tag?: CFC<HTMLSpanElement>;

@@ -7,7 +7,6 @@ import TaskItem from "./Item";
 import { TaskContext } from "./TaskProvider";
 
 import AddNewTaskButton from "./AddTaskButton";
-import Dropdown from "@components/Dropdown";
 import TaskActionDropdown from "./TaskActionDropdown";
 
 export interface GroupProps {

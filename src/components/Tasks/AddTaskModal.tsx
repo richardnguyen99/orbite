@@ -29,6 +29,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
     const [category, setCategory] = useState("");
     const [dueDate, setDueDate] = useState<Date>();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [task, setTask] = useState<TaskProps>({
       name: "",
       category: "",
@@ -43,13 +44,6 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
     const getSelectionDisplayName = () => {
       return category !== "" ? category : "Select one";
     };
-
-    const taskNameChangeHandler = useCallback(
-      (evt: React.ChangeEvent<HTMLInputElement>) => {
-        setTaskName(evt.target.value);
-      },
-      []
-    );
 
     const addTaskHandler = useCallback(() => {
       taskContext.onAddTask({

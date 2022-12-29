@@ -110,7 +110,7 @@ const darkOnActiveFillColors = {
   rose: "dark:group-[.active]:fill-rose-200",
 };
 
-const Gear: CFC<HTMLOrSVGElement, IconProps> = ({ color, active, ...rest }) => {
+const Gear: CFC<HTMLOrSVGElement, IconProps> = ({ color, ...rest }) => {
   const defaultClassName = () =>
     classNames("dark:fill-neutral-300", {
       [lightFillColors[color]]: true,

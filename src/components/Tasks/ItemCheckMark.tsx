@@ -66,6 +66,8 @@ const TaskItemCheckMark: FC<Props & HTMLAttributes<HTMLButtonElement>> = ({
     // Do not update the dependency list according to the ESLint! This effect
     //only listens to the event when animation status changes to "animating",
     // which means the animation is happening.
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animationStatus]);
 
   return (

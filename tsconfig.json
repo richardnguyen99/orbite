@@ -18,6 +18,8 @@
     "paths": {
       "@components": ["./src/components"],
       "@components/*": ["./src/components/*"],
+      "@features": ["./src/features"],
+      "@features/*": ["./src/features/*"],
       "@assets": ["./src/assets"],
       "@assets/*": ["./src/assets/*"],
       "@hooks": ["./src/hooks"],

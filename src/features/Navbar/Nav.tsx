@@ -12,7 +12,6 @@ import { NavProps } from "./types";
 import NavLink from "./Link";
 
 const NavbarNav: CFC<HTMLDivElement, NavProps> = ({
-  children,
   right = false,
   items,
   ...rest
@@ -29,7 +28,9 @@ const NavbarNav: CFC<HTMLDivElement, NavProps> = ({
     <nav {...rest} className={getClassNames()}>
       <ul className="flex space-x-2">
         {items.map(({ icon, to, href, text }, idx) => (
-          <NavLink to={to} key={idx} icon={icon} text={text} href={href} />
+          <NavLink to={to} key={idx} icon={icon} text={text} href={href}>
+            {text}
+          </NavLink>
         ))}
       </ul>
     </nav>

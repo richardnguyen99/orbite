@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface InputProps {
   value: string;
   onUpdateValue: (newValue: string) => void;

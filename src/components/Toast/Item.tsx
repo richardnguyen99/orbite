@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect } from "react";
+import { FC, useContext } from "react";
 import {
   Variants,
   motion,
@@ -65,7 +65,7 @@ const motionVariants: Variants = {
 type ToastItemType = FC<{ toast: ToastItemProps }>;
 
 const ToastItem: ToastItemType = ({
-  toast: { id, message, type = "info", onClick, onClose },
+  toast: { id, message, type = "info", onClick: _onClick, onClose },
 }) => {
   const isPresent = useIsPresent();
   const prefersReducedMotion = useReducedMotion();

@@ -10,7 +10,7 @@ export type DropdownItemType = DropdownItemProps &
 
 const DropdownItemRenderRef = (
   {
-    icon,
+    icon: _icon,
     text,
     children,
     onClick,
@@ -18,7 +18,7 @@ const DropdownItemRenderRef = (
     to = "#",
     ...rest
   }: DropdownItemType,
-  ref: Ref<HTMLElement>
+  _ref: Ref<HTMLElement>
 ) => {
   const content = text || children;
 
