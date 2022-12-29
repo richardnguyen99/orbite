@@ -9,9 +9,9 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "react-day-picker/dist/style.css";
 
+import ToastProvider from "@features/Toast/Provider";
+import Toast from "@features/Toast";
 import "./index.css";
-import ToastProvider from "@components/Toast/Provider";
-import Toast from "@components/Toast";
 
 const RouteRoot = React.lazy(() => import("./routes/root"));
 const RouteAbout = React.lazy(() => import("./routes/about"));

@@ -1,4 +1,6 @@
 import { FC, useContext } from "react";
+import classNames from "classnames";
+import { GearIcon, XIcon } from "@primer/octicons-react";
 import {
   Variants,
   motion,
@@ -6,12 +8,11 @@ import {
   useReducedMotion,
 } from "framer-motion";
 
-import { ToastItemProps } from "./types";
-import classNames from "classnames";
-import ToastContext from "./Context";
 import useTimeout from "@hooks/use-timeout";
 import useUpdateEffect from "@hooks/use-update-effect";
-import { CrossReferenceIcon, GearIcon } from "@primer/octicons-react";
+
+import { ToastItemProps } from "./types";
+import ToastContext from "./Context";
 
 const toastStyleVariants: Record<
   NonNullable<ToastItemProps["type"]>,
@@ -95,7 +96,7 @@ const ToastItem: ToastItemType = ({
       custom="bottom-right"
       variants={!prefersReducedMotion ? motionVariants : {}}
       className={classNames(
-        "flex w-max items-center shadow px-4 py-3 rounded border transition-colors duration-100 min-w-[260px] text-sm pointer-events-auto bg-slate-300 dark:bg-slate-900",
+        "flex w-max items-center shadow px-4 py-3 rounded-lg border-2 transition-colors duration-100 min-w-[260px] text-sm pointer-events-auto bg-slate-300 dark:bg-slate-900",
         {
           [toastStyleVariants[type]]: true,
         }
@@ -116,7 +117,7 @@ const ToastItem: ToastItemType = ({
             closeButtonStyleVariants[type]
           )}
         >
-          <CrossReferenceIcon />
+          <XIcon />
         </button>
       </div>
     </motion.li>

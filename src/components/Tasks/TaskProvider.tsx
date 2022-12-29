@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 import { TaskProps } from "./type";
 import { CFC } from "@typings/react";
 import { useLocalStorage } from "@hooks/use-local-storage";
-import ToastContext from "@components/Toast/Context";
+import ToastContext from "@features/Toast/Context";
 
 export interface TaskProviderProps {
   initialTasks?: TaskProps[];
