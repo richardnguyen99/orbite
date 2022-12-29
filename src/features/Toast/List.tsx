@@ -1,12 +1,15 @@
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { FC, ReactNode } from "react";
 import * as ReactDOM from "react-dom";
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
-interface Props {
+interface ToastListProps {
   children: ReactNode;
 }
 
-const ToastList: FC<Props> = ({ children }) => {
+/**
+ * A container in which all the toasts live.
+ */
+const ToastList: FC<ToastListProps> = ({ children }) => {
   return ReactDOM.createPortal(
     <AnimateSharedLayout>
       <ul
