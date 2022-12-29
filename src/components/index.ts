@@ -3,7 +3,7 @@ import Container from "./Container";
 import Layout from "./Layout";
 import Section from "./Section";
 import Carousel from "./Carousel";
-import Tasks from "./Tasks";
+import Tasks from "../features/Tasks";
 import Dropdown from "./Dropdown";
 
 const exportedComponents = {
