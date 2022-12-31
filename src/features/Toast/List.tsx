@@ -14,7 +14,7 @@ const ToastList: FC<ToastListProps> = ({ children }) => {
     <AnimateSharedLayout>
       <ul
         aria-live="assertive"
-        className="flex fixed z-50 flex-col gap-4 m-4 lg:m-8 pointer-events-none bottom-0 right-0 items-end"
+        className="flex fixed z-[1002] flex-col gap-4 m-4 lg:m-8 pointer-events-none bottom-0 right-0 items-end"
       >
         <AnimatePresence initial={false}>{children}</AnimatePresence>
       </ul>

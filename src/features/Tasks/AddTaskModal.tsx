@@ -15,6 +15,7 @@ import Calendar from "@components/DatePicker";
 import { TaskContext } from "./TaskProvider";
 import { TaskProps } from "./type";
 import AddTaskNameInput from "./AddTaskNameInput";
+import AddTaskSelect from "./AddTaskSelect";
 
 interface Props {
   open: boolean;
@@ -28,6 +29,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
     const [taskName, setTaskName] = useState("");
     const [category, setCategory] = useState("");
     const [dueDate, setDueDate] = useState<Date>();
+    const [prior, setPrior] = useState(1);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [task, setTask] = useState<TaskProps>({
@@ -49,7 +51,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
       taskContext.onAddTask({
         name: taskName,
         category: category,
-        prior: 3,
+        prior: prior,
         notes: "",
         finished: false,
       });
@@ -57,7 +59,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
       setCategory("");
       setDueDate(undefined);
       setOpen(false);
-    }, [category, setOpen, taskContext, taskName]);
+    }, [category, prior, setOpen, taskContext, taskName]);
 
     return (
       <Transition.Root show={open} as={Fragment}>
@@ -198,6 +200,10 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                           </Dropdown>
                         </div>
                       </div>
+
+                      <div className="mb-6">
+                        <AddTaskSelect onSelect={setPrior} />
+                      </div>
                       <div className="mb-6">
                         <label
                           htmlFor="password"
@@ -214,6 +220,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                       </div>
                       <button
                         type="button"
+                        disabled
                         onClick={addTaskHandler}
                         className="inline-flex items-center rounded-md border border-transparent bg-green-600/80 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 "
                       >
