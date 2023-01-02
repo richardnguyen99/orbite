@@ -60,6 +60,8 @@ const TaskItemHeading: FC<Props & HTMLAttributes<HTMLHeadingElement>> = ({
     return classNames({
       "text-lg font-bold  md:text-lg lg:text-xl": true,
       "focus:outline-none": true,
+      "flex-1 text-ellipsis max-h-7 overflow-hidden break-all relative truncate":
+        true,
     });
   };
 
@@ -76,6 +78,7 @@ const TaskItemHeading: FC<Props & HTMLAttributes<HTMLHeadingElement>> = ({
       className={getContentEditableClassNames()}
     >
       {trimEscapeCharacters(title)}
+      <div className="opacity-0 group-hover:opacity-100 duration-300 absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-slate-900"></div>
     </h1>
   );
 };

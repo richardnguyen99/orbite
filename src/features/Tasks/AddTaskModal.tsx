@@ -220,7 +220,6 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                       </div>
                       <button
                         type="button"
-                        disabled
                         onClick={addTaskHandler}
                         className="inline-flex items-center rounded-md border border-transparent bg-green-600/80 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 "
                       >

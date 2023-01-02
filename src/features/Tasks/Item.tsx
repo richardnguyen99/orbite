@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { XIcon } from "@primer/octicons-react";
+import { PencilIcon, TrashIcon } from "@primer/octicons-react";
 import { Reorder, useMotionValue } from "framer-motion";
 import { CFC } from "@typings/react";
 
@@ -37,7 +37,7 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
       id={task.name}
       value={task}
       style={{ boxShadow, y: dy }}
-      className="relative flex items-center flex-shrink-0 w-full rounded-lg p-8 bg-slate-300 dark:bg-slate-900"
+      className="group relative flex items-center flex-shrink-0 w-full rounded-lg p-8 hover:pr-32 cursor-pointer break-all bg-slate-300 dark:bg-slate-900"
     >
       <div className="mr-3">
         <TaskItemCheckMark
@@ -49,9 +49,22 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
         initialName={task.name}
         onNameChange={onUpdateItemName}
       />
-      <button type="button" className="ml-auto" onClick={onDeleteItem}>
-        <XIcon size={24} />
-      </button>
+      <div className="opacity-0 group-hover:opacity-100 absolute flex items-center gap-5 right-1 z-10 text-gray-300 visible">
+        <button
+          type="button"
+          className="p-1.5 rounded-lg text-amber-500 hover:text-amber-600 hover:bg-amber-600/25 "
+          onClick={onDeleteItem}
+        >
+          <PencilIcon size={24} />
+        </button>
+        <button
+          type="button"
+          className="p-1.5 rounded-lg mr-8 text-red-500 hover:text-red-600 hover:bg-red-600/25"
+          onClick={onDeleteItem}
+        >
+          <TrashIcon size={24} />
+        </button>
+      </div>
     </Reorder.Item>
   );
 };
