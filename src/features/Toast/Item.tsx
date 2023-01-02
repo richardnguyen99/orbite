@@ -28,10 +28,10 @@ const closeButtonStyleVariants: Record<
   NonNullable<ToastItemProps["type"]>,
   string
 > = {
-  success: "hover:bg-green-500 active:bg-green-600",
-  error: "hover:bg-red-500 active:bg-red-600",
-  info: "hover:bg-purple-500 active:bg-purple-600",
-  warning: "hover:bg-yellow-500 active:bg-yellow-600",
+  success: "hover:bg-green-500/25 active:bg-green-600",
+  error: "hover:bg-red-500/25 active:bg-red-600",
+  info: "hover:bg-purple-500/25 active:bg-purple-600",
+  warning: "hover:bg-yellow-500/25 active:bg-yellow-600",
 };
 
 const motionVariants: Variants = {

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
@@ -23,7 +23,7 @@ export interface SelectProps {
 
 export type SelectType = CFC<HTMLDivElement, SelectProps>;
 
-const Select: SelectType = ({ options, selected, setSelected }) => {
+const Select: SelectType = ({ selected, setSelected }) => {
   return (
     <Listbox as="div" value={selected} onChange={setSelected}>
       <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
@@ -45,7 +45,7 @@ const Select: SelectType = ({ options, selected, setSelected }) => {
         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       >
-        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md  sm:text-sm ">
+        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md sm:text-sm">
           {people.map((person, personIdx) => (
             <Listbox.Option
               key={personIdx}

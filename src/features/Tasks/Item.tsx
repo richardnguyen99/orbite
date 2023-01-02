@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PencilIcon, TrashIcon } from "@primer/octicons-react";
+import { HistoryIcon, PencilIcon, TrashIcon } from "@primer/octicons-react";
 import { Reorder, useMotionValue } from "framer-motion";
 import { CFC } from "@typings/react";
 
@@ -8,6 +8,7 @@ import { useShadow } from "./use-shadow";
 import { TaskContext } from "./TaskProvider";
 import TaskItemHeading from "./ItemHeading";
 import TaskItemCheckMark from "./ItemCheckMark";
+import Tooltip from "@components/Tooltip";
 
 const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
   const taskContext = useContext(TaskContext);
@@ -49,21 +50,34 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
         initialName={task.name}
         onNameChange={onUpdateItemName}
       />
-      <div className="opacity-0 group-hover:opacity-100 absolute flex items-center gap-5 right-1 z-10 text-gray-300 visible">
-        <button
-          type="button"
-          className="p-1.5 rounded-lg text-amber-500 hover:text-amber-600 hover:bg-amber-600/25 "
-          onClick={onDeleteItem}
-        >
-          <PencilIcon size={24} />
-        </button>
-        <button
-          type="button"
-          className="p-1.5 rounded-lg mr-8 text-red-500 hover:text-red-600 hover:bg-red-600/25"
-          onClick={onDeleteItem}
-        >
-          <TrashIcon size={24} />
-        </button>
+      <div className="opacity-0 group-hover:opacity-100 absolute flex items-center gap-5 right-1 z-10 pr-8 text-gray-300 visible">
+        <Tooltip placement="bottom-start" message="Mark as daily">
+          <button
+            type="button"
+            className="p-1.5 rounded-lg  hover:text-teal-600 hover:bg-teal-600/25"
+            onClick={onDeleteItem}
+          >
+            <HistoryIcon size={24} />
+          </button>
+        </Tooltip>
+        <Tooltip placement="bottom" message="Update task">
+          <button
+            type="button"
+            className="p-1.5 rounded-lg text-amber-500 hover:text-amber-600 hover:bg-amber-600/25 "
+            onClick={onDeleteItem}
+          >
+            <PencilIcon size={24} />
+          </button>
+        </Tooltip>
+        <Tooltip placement="bottom-end" message="Delete task">
+          <button
+            type="button"
+            className="p-1.5 rounded-lg text-red-500 hover:text-red-600 hover:bg-red-600/25"
+            onClick={onDeleteItem}
+          >
+            <TrashIcon size={24} />
+          </button>
+        </Tooltip>
       </div>
     </Reorder.Item>
   );
