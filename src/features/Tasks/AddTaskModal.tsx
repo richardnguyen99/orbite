@@ -22,46 +22,55 @@ interface Props {
   setOpen: (state: boolean) => void;
 }
 
+const defaultTask = {
+  name: "",
+  category: "",
+  prior: 1,
+  finished: false,
+  dueDate: undefined,
+  notes: "",
+  daily: false,
+};
+
 const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
   ({ open, setOpen }, _ref) => {
     const taskContext = useContext(TaskContext);
 
-    const [taskName, setTaskName] = useState("");
-    const [category, setCategory] = useState("");
-    const [dueDate, setDueDate] = useState<Date>();
-    const [prior, setPrior] = useState(1);
+    //const [taskName, setTaskName] = useState("");
+    //const [category, setCategory] = useState("");
+    //const [dueDate, setDueDate] = useState<Date>();
+    //const [prior, setPrior] = useState(1);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [task, setTask] = useState<TaskProps>({
-      name: "",
-      category: "",
-      prior: 1,
-      finished: false,
-      dueDate: undefined,
-      notes: "",
-      daily: false,
-    });
+    const [task, setTask] = useState<TaskProps>(defaultTask);
 
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const getSelectionDisplayName = () => {
-      return category !== "" ? category : "Select one";
+      return task.category !== "" ? task.category : "Select one";
     };
 
     const addTaskHandler = useCallback(() => {
-      taskContext.onAddTask({
-        name: taskName,
-        category: category,
-        prior: prior,
-        notes: "",
-        finished: false,
-        daily: false,
-      });
-      setTaskName("");
-      setCategory("");
-      setDueDate(undefined);
+      taskContext.onAddTask(task);
+      setTask(defaultTask);
       setOpen(false);
-    }, [category, prior, setOpen, taskContext, taskName]);
+    }, [task, taskContext, setOpen]);
+
+    const setTaskName = (newName: string) => {
+      setTask((prev) => ({ ...prev, name: newName }));
+    };
+
+    const setCategory = (newValue: string) => {
+      setTask((prev) => ({ ...prev, category: newValue }));
+    };
+
+    const setDueDate = (newDate: Date | undefined) => {
+      setTask((prev) => ({ ...prev, dueDate: newDate }));
+    };
+
+    const setPrior = (newPrior: number) => {
+      setTask((prev) => ({ ...prev, prior: newPrior }));
+    };
 
     return (
       <Transition.Root show={open} as={Fragment}>
@@ -124,7 +133,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                     <form>
                       <div className="mb-6">
                         <AddTaskNameInput
-                          value={taskName}
+                          value={task.name}
                           onUpdateValue={setTaskName}
                         />
                       </div>
@@ -138,7 +147,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
                           </label>
                           <Calendar
                             displayName="Due date"
-                            selectedDate={dueDate}
+                            selectedDate={task.dueDate}
                             onSelectedDate={setDueDate}
                             displaySelectedDate
                             buttonClassName="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"

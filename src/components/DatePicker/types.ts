@@ -24,7 +24,7 @@ export interface CalendarProps {
    * @default undefined
    * @public
    */
-  onSelectedDate?: React.Dispatch<React.SetStateAction<Date | undefined>>;
+  onSelectedDate?: (newDate: Date | undefined) => void;
 
   /**
    * Controls whether the selected date will override the displayName prop.
