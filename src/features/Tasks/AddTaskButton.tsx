@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Icon from "@components/Icon";
 import Button from "@components/Button";
 
-const AddNewTaskModal = React.lazy(() => import("./AddTaskModal"));
+const AddNewTaskModal = React.lazy(() => import("./Modal"));
 
 const AddNewTaskButton = () => {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ const AddNewTaskButton = () => {
       </Button>
 
       <React.Suspense>
-        <AddNewTaskModal open={open} setOpen={setOpen} />
+        <AddNewTaskModal open={open} setOpen={setOpen} type="add" />
       </React.Suspense>
     </>
   );
