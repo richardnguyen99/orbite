@@ -1,4 +1,5 @@
 import { Colors, Size } from "@typings/react";
+import { ButtonVariant } from "./type";
 
 export const getBtnDefaultClassName = () => {
   return "inline-flex items-center gap-1";
@@ -94,7 +95,17 @@ export const getPrimaryBtnClassName = (color: Colors) => {
   return `focus:ring-2 border border-transparent ${bgColors[color]} ${hoverBgColors[color]} ${focusRingColors[color]} ${textColor}`;
 };
 
-export const getBtnSizeClassName = (size: Size) => {
+export const getTransparentBtnClassName = () => {
+  return "hover:bg-gray-300 dark:hover:bg-slate-700 fill-white";
+};
+
+export const getBtnColorClassName = (variant: ButtonVariant, color: Colors) => {
+  if (variant === "transparent") return getTransparentBtnClassName();
+
+  return getPrimaryBtnClassName(color);
+};
+
+export const getBtnSizeClassName = (size: Size, noText: boolean) => {
   const buttonSize = {
     sm: "px-2 py-1 text-sm",
     md: "px-3 py-1.5 text-[15px] leading-[1.1]",
@@ -103,7 +114,15 @@ export const getBtnSizeClassName = (size: Size) => {
     xl: "px-5 py-3 text-lg font-bold",
   };
 
-  return buttonSize[size];
+  const noTextButtonSize = {
+    sm: "px-1 py-1 text-sm",
+    md: "px-1.5 py-1.5 text-[15px] leading-[1.1]",
+    base: "px-2 py-2 text-[16px] leading-[1.2] font-medium",
+    lg: "px-2.5 py-2.5 text-lg font-semibold",
+    xl: "px-3 py-3 text-lg font-bold",
+  };
+
+  return noText ? noTextButtonSize[size] : buttonSize[size];
 };
 
 export const getBtnIconSizeClassName = (size: Size) => {
@@ -115,7 +134,7 @@ export const getBtnIconSizeClassName = (size: Size) => {
     xl: "w-7 h-7",
   };
 
-  return iconSize[size];
+  return `fill-none stroke-current stroke-[1.5px] ${iconSize[size]}`;
 };
 
 export const getBtnIconViewBox = (size: Size) => {

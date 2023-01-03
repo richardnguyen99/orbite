@@ -1,11 +1,12 @@
 import { ForwardRefRenderFunction, HTMLAttributes, forwardRef } from "react";
-import { ButtonProps } from "./type";
 import classNames from "classnames";
+
+import { ButtonProps } from "./type";
 import {
+  getBtnColorClassName,
   getBtnDefaultClassName,
   getBtnIconSizeClassName,
   getBtnSizeClassName,
-  getPrimaryBtnClassName,
 } from "./util";
 
 export type ButtonType = ForwardRefRenderFunction<
@@ -21,10 +22,15 @@ const ButtonRefFunc: ButtonType = (
     color = "indigo",
     rounded = true,
     size = "base",
+    variant = "primary",
     ...rest
   },
   ref
 ) => {
+  const hasNoChildren = () => {
+    return typeof children === "undefined" || children === "";
+  };
+
   return (
     <button
       type="button"
@@ -32,8 +38,8 @@ const ButtonRefFunc: ButtonType = (
       {...rest}
       className={classNames(
         getBtnDefaultClassName(),
-        getBtnSizeClassName(size),
-        getPrimaryBtnClassName(color),
+        getBtnSizeClassName(size, hasNoChildren()),
+        getBtnColorClassName(variant, color),
         {
           "rounded-lg": rounded,
           "flex-row-reverse": iconPlacement === "trailing",
@@ -41,16 +47,14 @@ const ButtonRefFunc: ButtonType = (
         rest.className || ""
       )}
     >
-      {Icon && (
+      {Icon ? (
         <Icon
-          fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
+          size={24}
           aria-hidden="true"
           className={getBtnIconSizeClassName(size)}
         />
-      )}
+      ) : null}
       {children}
     </button>
   );

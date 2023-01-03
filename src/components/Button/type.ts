@@ -8,6 +8,8 @@ export type ButtonIconType = FC<
     SVGAttributes<SVGSVGElement>
 >;
 
+export type ButtonVariant = "primary" | "secondary" | "outline" | "transparent";
+
 export interface ButtonProps {
   /**
    * Display an icon as a React component that accepts props. The passed-in
@@ -58,7 +60,7 @@ export interface ButtonProps {
    * @default "primary"
    * @public
    */
-  variant?: "primary" | "secondary" | "outline";
+  variant?: ButtonVariant;
 
   /**
    * Control the main theme of the button component.
@@ -71,5 +73,5 @@ export interface ButtonProps {
   /**
    * Specify the content of the button component.
    */
-  children: string;
+  children?: string;
 }
