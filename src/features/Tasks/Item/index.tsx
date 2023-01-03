@@ -1,15 +1,22 @@
 import { useContext } from "react";
 import { HistoryIcon, PencilIcon, TrashIcon } from "@primer/octicons-react";
 import { Reorder, useMotionValue } from "framer-motion";
+
+import Tooltip from "@components/Tooltip";
 import { CFC } from "@typings/react";
 
-import { TaskItemProps, TaskProps } from "./type";
-import { useShadow } from "./use-shadow";
-import { TaskContext } from "./TaskProvider";
-import TaskItemHeading from "./ItemHeading";
-import TaskItemCheckMark from "./ItemCheckMark";
-import Tooltip from "@components/Tooltip";
+import { TaskItemProps, TaskProps } from "../type";
+import { useShadow } from "../use-shadow";
+import { TaskContext } from "../TaskProvider";
 
+import EditableHeading from "./EditableHeading";
+import CheckMark from "./CheckMark";
+import classNames from "classnames";
+
+/**
+ * A core React component that represents a task, containing all the necessary
+ * information and additional functionalities associating with this task.
+ */
 const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
   const taskContext = useContext(TaskContext);
 
@@ -32,30 +39,40 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
     onUpdateItem({ finished: newStatus });
   };
 
+  const onUpdateDailyState = () => {
+    onUpdateItem({ daily: !task.daily });
+  };
+
   return (
     <Reorder.Item
       as="li"
       id={task.name}
       value={task}
       style={{ boxShadow, y: dy }}
-      className="group relative flex items-center flex-shrink-0 w-full rounded-lg p-8 hover:pr-32 cursor-pointer break-all bg-slate-300 dark:bg-slate-900"
+      className="group relative flex items-center flex-shrink-0 w-full rounded-lg  p-4 lg:p-8 hover:pr-32 lg:hover:pr-48 break-all bg-slate-300 dark:bg-slate-900"
     >
       <div className="mr-3">
-        <TaskItemCheckMark
+        <CheckMark
           name={task.name}
           onUpdateStatusCallback={onUpdateItemStatus}
         />
       </div>
-      <TaskItemHeading
+      <EditableHeading
         initialName={task.name}
         onNameChange={onUpdateItemName}
       />
-      <div className="opacity-0 group-hover:opacity-100 absolute flex items-center gap-5 right-1 z-10 pr-8 text-gray-300 visible">
-        <Tooltip placement="bottom-start" message="Mark as daily">
+      <div className="opacity-0 group-focus:opacity-100 group-hover:opacity-100 absolute flex items-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 right-1 z-10 pr-4 lg:pr-8 text-gray-300 visible">
+        <Tooltip
+          placement="bottom-start"
+          message={`${task.daily ? "Unmark" : "Mark"} as daily`}
+        >
           <button
             type="button"
-            className="p-1.5 rounded-lg  hover:text-teal-600 hover:bg-teal-600/25"
-            onClick={onDeleteItem}
+            className={classNames(
+              "p-1.5 rounded-lg  hover:text-teal-600 hover:bg-teal-600/25",
+              { "text-teal-500": task.daily }
+            )}
+            onClick={onUpdateDailyState}
           >
             <HistoryIcon size={24} />
           </button>

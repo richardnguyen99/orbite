@@ -35,6 +35,13 @@ export interface TaskProps {
   dueDate?: Date;
 
   /**
+   * A daily task will get refreshed on the daily basis.
+   *
+   * @public
+   */
+  daily: boolean;
+
+  /**
    * Determine whether or not this task is finished or completed.
    *
    * @public

@@ -6,7 +6,6 @@
 
 import type { CFC } from "@typings/react";
 import Components from "@components";
-import { TaskProps } from "@features/Tasks/type";
 import GreetingWithTime from "@features/GreetingWithTime";
 
 const { Layout, Section, Carousel, Container, Tasks } = Components;
@@ -31,30 +30,6 @@ const tasks = [
   {
     taskName: "Special",
     amount: 8,
-  },
-];
-
-const taskItems: TaskProps[] = [
-  {
-    name: "Finish Genesis",
-    category: "Personal",
-    prior: 5,
-    finished: false,
-    notes: "Genesis is the first book in the Old Testament and in the Bible.",
-  },
-  {
-    name: "Implement Task component",
-    category: "Work",
-    prior: 3,
-    finished: false,
-    notes: "Task component is the essence of the Todo App",
-  },
-  {
-    name: "Buy Gifts",
-    category: "Chores",
-    prior: 2,
-    finished: true,
-    notes: "Buy gifts for the holiday",
   },
 ];
 

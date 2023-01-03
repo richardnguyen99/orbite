@@ -39,6 +39,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
       finished: false,
       dueDate: undefined,
       notes: "",
+      daily: false,
     });
 
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -54,6 +55,7 @@ const AddNewTaskModal = forwardRef<HTMLButtonElement, Props>(
         prior: prior,
         notes: "",
         finished: false,
+        daily: false,
       });
       setTaskName("");
       setCategory("");

@@ -7,8 +7,9 @@ import {
   useEffect,
   useContext,
 } from "react";
-import { TaskContext } from "./TaskProvider";
-import { TaskProps } from "./type";
+
+import { TaskContext } from "../TaskProvider";
+import { TaskProps } from "../type";
 
 interface Props {
   name: string;
