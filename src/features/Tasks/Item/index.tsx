@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { HistoryIcon, PencilIcon, TrashIcon } from "@primer/octicons-react";
+import classNames from "classnames";
 import { Reorder, useMotionValue } from "framer-motion";
+import { HistoryIcon, PencilIcon, TrashIcon } from "@primer/octicons-react";
 
 import Tooltip from "@components/Tooltip";
 import { CFC } from "@typings/react";
@@ -11,7 +12,6 @@ import { TaskContext } from "../TaskProvider";
 
 import EditableHeading from "./EditableHeading";
 import CheckMark from "./CheckMark";
-import classNames from "classnames";
 
 /**
  * A core React component that represents a task, containing all the necessary

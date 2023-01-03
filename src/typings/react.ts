@@ -96,7 +96,11 @@ export type CMouseEvCallback<T = HTMLElement, E = MouseEvent, R = void> = (
   e: CMouseEv<T, E>
 ) => R;
 
+export type Size = "sm" | "md" | "base" | "lg" | "xl";
+
 export type Colors =
+  | "white"
+  | "black"
   | "slate"
   | "gray"
   | "zinc"

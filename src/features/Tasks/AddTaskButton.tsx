@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 import Icon from "@components/Icon";
-import PrimaryButton from "@components/Button/PrimaryButton";
-
-//import AddNewTaskModal from "./AddTaskModal";
+import Button from "@components/Button";
 
 const AddNewTaskModal = React.lazy(() => import("./AddTaskModal"));
 
@@ -12,14 +10,15 @@ const AddNewTaskButton = () => {
 
   return (
     <>
-      <PrimaryButton
+      <Button
         icon={Icon.NewTask}
+        rounded
         size="base"
         color="green"
-        onClickCallback={() => setOpen(true)}
+        onClick={() => setOpen(true)}
       >
         New Task
-      </PrimaryButton>
+      </Button>
 
       <React.Suspense>
         <AddNewTaskModal open={open} setOpen={setOpen} />

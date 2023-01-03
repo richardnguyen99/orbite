@@ -11,6 +11,8 @@ import { CFC } from "@typings/react";
 import { IconProps } from "./types";
 
 const lightFillColors = {
+  white: "",
+  black: "",
   slate: "fill-slate-200",
   gray: "fill-gray-200",
   zinc: "fill-zinc-200",
@@ -36,6 +38,8 @@ const lightFillColors = {
 };
 
 const lightOnHoverFillColors = {
+  white: "",
+  black: "",
   slate: "group-hover:fill-slate-300",
   gray: "group-hover:fill-gray-300",
   zinc: "group-hover:fill-zinc-300",
@@ -61,6 +65,8 @@ const lightOnHoverFillColors = {
 };
 
 const darkOnHoverFillColors = {
+  white: "",
+  black: "",
   slate: "dark:group-hover:fill-slate-200",
   gray: "dark:group-hover:fill-gray-200",
   zinc: "dark:group-hover:fill-zinc-200",
@@ -86,6 +92,8 @@ const darkOnHoverFillColors = {
 };
 
 const darkOnActiveFillColors = {
+  white: "",
+  black: "",
   slate: "dark:group-[.active]:fill-slate-200",
   gray: "dark:group-[.active]:fill-gray-200",
   zinc: "dark:group-[.active]:fill-zinc-200",

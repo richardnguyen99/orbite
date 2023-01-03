@@ -16,6 +16,8 @@ export type ModalItemProps = Omit<NavItemProps, "tag"> & {
 };
 
 const iconBgColors = {
+  white: "",
+  black: "",
   slate: "bg-slate-400 group-hover:bg-slate-500 dark:group-hover:bg-slate-600",
   gray: "bg-gray-400 group-hover:bg-gray-500 dark:group-hover:bg-gray-600",
   zinc: "bg-zinc-400 group-hover:bg-zinc-500 dark:group-hover:bg-zinc-600",
@@ -49,6 +51,8 @@ const iconBgColors = {
 };
 
 const iconOnActiveBgColors = {
+  white: "",
+  black: "",
   slate: "dark:group-[.active]:bg-slate-600",
   gray: "dark:group-[.active]:bg-gray-600",
   zinc: "dark:group-[.active]:bg-zinc-600",
@@ -74,6 +78,8 @@ const iconOnActiveBgColors = {
 };
 
 const hoverTextColors = {
+  white: "",
+  black: "",
   slate: "dark:group-hover:text-slate-600",
   gray: "dark:group-hover:text-gray-600",
   zinc: "dark:group-hover:text-zinc-600",
@@ -99,6 +105,9 @@ const hoverTextColors = {
 };
 
 const activeLightTextColors = {
+  white: "",
+  black: "",
+
   slate: "group-[.active]:text-slate-500",
   gray: "group-[.active]:text-gray-500",
   zinc: "group-[.active]:text-zinc-500",
@@ -124,6 +133,8 @@ const activeLightTextColors = {
 };
 
 const activeDarkTextColors = {
+  white: "",
+  black: "",
   slate: "dark:group-[.active]:text-slate-600",
   gray: "dark:group-[.active]:text-gray-600",
   zinc: "dark:group-[.active]:text-zinc-600",
