@@ -24,7 +24,7 @@ const Calendar: FC<CalendarProps & HTMLAttributes<HTMLDivElement>> = ({
   buttonClassName,
 }) => {
   const { inputProps, dayPickerProps } = useInput({
-    defaultSelected: selectedDate,
+    defaultSelected: selectedDate ? new Date(selectedDate) : undefined,
     fromYear: 2000,
     toYear: 2050,
     format: "PP",
@@ -33,7 +33,7 @@ const Calendar: FC<CalendarProps & HTMLAttributes<HTMLDivElement>> = ({
 
   const getFormattedDateString = (date: Date | undefined) => {
     return date && displaySelectedDate
-      ? format(date, dateFormat ? dateFormat : "PP")
+      ? format(new Date(date), dateFormat ? dateFormat : "PP")
       : displayName;
   };
 

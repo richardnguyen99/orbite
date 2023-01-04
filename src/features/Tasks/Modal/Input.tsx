@@ -1,13 +1,13 @@
 /* eslint-disable quotes */
 import { ChangeEvent, FC, HTMLAttributes, useCallback, useState } from "react";
-import { InputProps } from "./type";
+import { InputProps } from "../type";
 import classNames from "classnames";
 
 const LIMIT_WORD = 50;
 
 type AddTaskNameInputType = InputProps & HTMLAttributes<HTMLInputElement>;
 
-const AddTaskNameInput: FC<AddTaskNameInputType> = ({
+const TaskNameInput: FC<AddTaskNameInputType> = ({
   value,
   onUpdateValue,
   ...rest
@@ -66,7 +66,7 @@ const AddTaskNameInput: FC<AddTaskNameInputType> = ({
   );
 };
 
-export default AddTaskNameInput;
+export default TaskNameInput;
 
 const formatLength = (length: number) => {
   if (length < 10) return `0${length}`;

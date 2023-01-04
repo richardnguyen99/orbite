@@ -80,7 +80,7 @@ export interface Props {
   onSelect: (newPrior: number) => void;
 }
 
-const AddTaskSelect: FC<Props> = ({ onSelect }) => {
+const TaskSelect: FC<Props> = ({ onSelect }) => {
   const [selected, setSelected] = useState(priorities[0]);
 
   const changeHandler = useCallback(
@@ -119,7 +119,7 @@ const AddTaskSelect: FC<Props> = ({ onSelect }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md sm:text-sm divide-y divide-gray-300 dark:divide-slate-700 bg-slate-100 dark:bg-slate-900 shadow-lg ring-slate-500 shadow-slate-400   dark:ring-slate-700  dark:shadow-slate-800/60 ring-opacity-5 focus:outline-none border border-slate-400 dark:border-slate-700">
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md sm:text-sm divide-y divide-gray-300 dark:divide-slate-700 bg-slate-100 dark:bg-slate-900 shadow-lg ring-slate-500 shadow-slate-400 dark:ring-slate-700  dark:shadow-slate-800/60 ring-opacity-5 focus:outline-none border border-slate-400 dark:border-slate-700">
               {priorities.map((priority, priorityIdx) => (
                 <Listbox.Option
                   key={priorityIdx}
@@ -158,4 +158,4 @@ const AddTaskSelect: FC<Props> = ({ onSelect }) => {
   );
 };
 
-export default AddTaskSelect;
+export default TaskSelect;
