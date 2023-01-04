@@ -30,10 +30,22 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
 
   const addNewTask = (newTask: TaskProps) => {
     const shouldAddNewTask =
-      tasks.some(
+      (tasks.some(
         (task) =>
           task.name !== newTask.name || task.category !== newTask.category
-      ) || tasks.length === 0;
+      ) ||
+        tasks.length === 0) &&
+      newTask.name.length > 0;
+
+    if (!shouldAddNewTask) {
+      toastContext.addNewToast({
+        id: "",
+        message: "Cannot add a new task",
+        type: "error",
+      });
+
+      return;
+    }
 
     setTasks((prev) => (shouldAddNewTask ? [...prev, newTask] : prev));
     toastContext.addNewToast({

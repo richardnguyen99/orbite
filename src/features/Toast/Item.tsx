@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import classNames from "classnames";
-import { GearIcon, XIcon } from "@primer/octicons-react";
+import { XIcon } from "@primer/octicons-react";
 import {
   Variants,
   motion,
@@ -13,6 +13,12 @@ import useUpdateEffect from "@hooks/use-update-effect";
 
 import { ToastItemProps } from "./types";
 import ToastContext from "./Context";
+import {
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+} from "@heroicons/react/20/solid";
 
 const toastStyleVariants: Record<
   NonNullable<ToastItemProps["type"]>,
@@ -32,6 +38,16 @@ const closeButtonStyleVariants: Record<
   error: "hover:bg-red-500/25 active:bg-red-600",
   info: "hover:bg-purple-500/25 active:bg-purple-600",
   warning: "hover:bg-yellow-500/25 active:bg-yellow-600",
+};
+
+const toastIcon: Record<
+  NonNullable<ToastItemProps["type"]>,
+  React.ReactElement
+> = {
+  success: <CheckCircleIcon className="w-5 h-5 fill-green-600" />,
+  error: <XCircleIcon className="w-5 h-5 fill-red-600" />,
+  info: <InformationCircleIcon className="w-5 h-5 fill-purple-600" />,
+  warning: <ExclamationTriangleIcon className="w-5 h-5 fill-yellow-600" />,
 };
 
 const motionVariants: Variants = {
@@ -105,7 +121,7 @@ const ToastItem: ToastItemType = ({
       onMouseLeave={onMouseLeave}
     >
       <div className="flex gap-2 items-center">
-        <GearIcon />
+        {toastIcon[type]}
         <span className="max-w-sm font-medium">{message}</span>
       </div>
 
