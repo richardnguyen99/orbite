@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 import React, {
   FC,
+  FormEventHandler,
   Fragment,
   useCallback,
   useContext,
@@ -77,6 +78,10 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
     setTask((prev) => ({ ...prev, notes: newValue }));
   };
 
+  const formSubmitHandler = useCallback<FormEventHandler>((e) => {
+    e.preventDefault();
+  }, []);
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -130,7 +135,7 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
 
                 {/* Form content */}
                 <div>
-                  <form>
+                  <form onSubmit={formSubmitHandler}>
                     <div className="mb-6">
                       <AddTaskNameInput
                         value={task.name}
