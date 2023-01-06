@@ -72,6 +72,12 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
         return task;
       })
     );
+
+    toastContext.addNewToast({
+      id: "",
+      message: "Successfully add new toast",
+      type: "success",
+    });
   };
 
   return (
