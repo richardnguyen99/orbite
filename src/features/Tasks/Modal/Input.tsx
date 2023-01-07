@@ -2,6 +2,7 @@
 import { ChangeEvent, FC, HTMLAttributes, useCallback, useState } from "react";
 import { InputProps } from "../type";
 import classNames from "classnames";
+import { getRingClassNames } from "./util";
 
 const LIMIT_WORD = 50;
 
@@ -10,6 +11,7 @@ type AddTaskNameInputType = InputProps & HTMLAttributes<HTMLInputElement>;
 const TaskNameInput: FC<AddTaskNameInputType> = ({
   value,
   onUpdateValue,
+  type,
   ...rest
 }) => {
   const [disabled, setDisabled] = useState(false);
@@ -30,8 +32,7 @@ const TaskNameInput: FC<AddTaskNameInputType> = ({
     return classNames(
       "outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white",
       {
-        "focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500":
-          !disabled,
+        [getRingClassNames(type)]: !disabled,
         "focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500":
           disabled,
       }

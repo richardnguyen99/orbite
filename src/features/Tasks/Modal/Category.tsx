@@ -2,6 +2,8 @@ import { FC } from "react";
 import { DotFillIcon, FeedStarIcon } from "@primer/octicons-react";
 
 import Dropdown from "@components/Dropdown";
+import classNames from "classnames";
+import { getRingClassNames } from "./util";
 
 const items = [
   {
@@ -29,9 +31,10 @@ const items = [
 export interface Props {
   category?: string;
   onSelectCategory: (newValue: string) => void;
+  type: "add" | "update";
 }
 
-const Category: FC<Props> = ({ category, onSelectCategory }) => {
+const Category: FC<Props> = ({ category, onSelectCategory, type }) => {
   const getSelectionDisplayName = () => {
     return category !== "" ? category : "Select one";
   };
@@ -45,7 +48,12 @@ const Category: FC<Props> = ({ category, onSelectCategory }) => {
         Category
       </label>
       <Dropdown animation id="category">
-        <Dropdown.Toggler className="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+        <Dropdown.Toggler
+          className={classNames(
+            "outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white",
+            getRingClassNames(type)
+          )}
+        >
           {getSelectionDisplayName()}
         </Dropdown.Toggler>
         <Dropdown.List>

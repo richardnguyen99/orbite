@@ -1,4 +1,5 @@
 export interface InputProps {
+  type: "add" | "update";
   value: string;
   onUpdateValue: (newValue: string) => void;
 }

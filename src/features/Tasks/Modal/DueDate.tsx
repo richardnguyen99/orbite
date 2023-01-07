@@ -1,12 +1,15 @@
 import Calendar from "@components/DatePicker";
+import classNames from "classnames";
 import { FC } from "react";
+import { getRingClassNames } from "./util";
 
 export interface Props {
+  type: "add" | "update";
   selectedDate?: Date;
   onSelectedDate?: (newDate: Date | undefined) => void;
 }
 
-const DueDate: FC<Props> = ({ selectedDate, onSelectedDate }) => {
+const DueDate: FC<Props> = ({ selectedDate, onSelectedDate, type }) => {
   return (
     <div className="w-6/12">
       <label
@@ -21,7 +24,10 @@ const DueDate: FC<Props> = ({ selectedDate, onSelectedDate }) => {
         selectedDate={selectedDate}
         onSelectedDate={onSelectedDate}
         displaySelectedDate
-        buttonClassName="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+        buttonClassName={classNames(
+          "outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white",
+          getRingClassNames(type)
+        )}
       />
     </div>
   );

@@ -3,6 +3,8 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { CFC } from "@typings/react";
 import { combineClassName } from "@utils/combine-classname";
+import { getRingClassNames } from "./util";
+import classNames from "classnames";
 
 const Pill: CFC<HTMLDivElement> = ({ children, className }) => {
   return (
@@ -77,10 +79,11 @@ const priorities = [
 ];
 
 export interface Props {
+  type: "add" | "update";
   onSelect: (newPrior: number) => void;
 }
 
-const TaskSelect: FC<Props> = ({ onSelect }) => {
+const TaskSelect: FC<Props> = ({ onSelect, type }) => {
   const [selected, setSelected] = useState(priorities[0]);
 
   const changeHandler = useCallback(
@@ -101,7 +104,12 @@ const TaskSelect: FC<Props> = ({ onSelect }) => {
       </label>
       <Listbox value={selected} onChange={changeHandler}>
         <div className="relative mt-1">
-          <Listbox.Button className="block relative w-full cursor-pointer text-left outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-green-500 focus:border-green-500 dark:focus:ring-green-500 dark:focus:border-green-500">
+          <Listbox.Button
+            className={classNames(
+              "block relative w-full cursor-pointer text-left outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 dark:bg-slate-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white",
+              getRingClassNames(type)
+            )}
+          >
             <span className="block truncate">{selected.component}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon

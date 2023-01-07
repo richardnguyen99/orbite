@@ -144,25 +144,28 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
                   <form onSubmit={formSubmitHandler}>
                     <div className="mb-6">
                       <AddTaskNameInput
+                        type={type}
                         value={task.name}
                         onUpdateValue={setTaskName}
                       />
                     </div>
                     <div className="flex flex-row items-center mb-6 h-full">
                       <DueDate
+                        type={type}
                         selectedDate={task.dueDate}
                         onSelectedDate={setDueDate}
                       />
                       <Category
+                        type={type}
                         category={task.category}
                         onSelectCategory={setCategory}
                       />
                     </div>
 
                     <div className="mb-6">
-                      <AddTaskSelect onSelect={setPrior} />
+                      <AddTaskSelect type={type} onSelect={setPrior} />
                     </div>
-                    <Description onChange={setDescription} />
+                    <Description type={type} onChange={setDescription} />
                     <Button
                       icon={Icon.NewTask}
                       rounded
