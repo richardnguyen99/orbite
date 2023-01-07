@@ -69,7 +69,7 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
 
   const updateTask = (taskId: string, newTaskProps: Partial<TaskProps>) => {
     let toastType: ToastType = "success";
-    let toastMessage = "Successfully added new toast";
+    let toastMessage = "Successfully updated new toast";
 
     setTasks((prev) =>
       prev.map((task) => {
@@ -79,7 +79,7 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
             newTaskProps.name = newTaskProps.name.slice(0, 50);
 
             toastType = "warning";
-            toastMessage = `Added new toast with exceeding length (received ${taskLength})`;
+            toastMessage = `Updated new toast with exceeding length (received ${taskLength})`;
           }
 
           return {
