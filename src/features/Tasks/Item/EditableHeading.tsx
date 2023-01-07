@@ -48,13 +48,16 @@ const TaskItemHeading: FC<Props & HTMLAttributes<HTMLHeadingElement>> = ({
     let capturedContent = initialName;
     // Prevent empty string from appearing. Instead, rendering initial value
     if (titleRef && titleRef.current) {
-      titleRef.current.innerHTML = titleRef.current.textContent || initialName;
-      capturedContent = titleRef.current.textContent || initialName;
+      capturedContent = (titleRef.current.textContent || initialName).slice(
+        0,
+        50
+      );
+      titleRef.current.innerHTML = capturedContent;
 
-      if (onNameChange) onNameChange(capturedContent);
+      if (onNameChange && title !== initialName) onNameChange(capturedContent);
       setTitle(capturedContent);
     }
-  }, [initialName, onNameChange]);
+  }, [initialName, onNameChange, title]);
 
   const getContentEditableClassNames = () => {
     return classNames({

@@ -1,9 +1,11 @@
 import { createContext, useContext } from "react";
 
-import { TaskProps } from "./type";
 import { CFC } from "@typings/react";
 import { useLocalStorage } from "@hooks/use-local-storage";
 import ToastContext from "@features/Toast/Context";
+import { ToastType } from "@features/Toast/types";
+
+import { TaskProps } from "./type";
 
 export interface TaskProviderProps {
   initialTasks?: TaskProps[];
@@ -66,9 +68,25 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
   };
 
   const updateTask = (taskId: string, newTaskProps: Partial<TaskProps>) => {
+    let toastType: ToastType = "success";
+    let toastMessage = "Successfully added new toast";
+
     setTasks((prev) =>
       prev.map((task) => {
-        if (taskId === task.uid) return { ...task, ...newTaskProps };
+        if (taskId === task.uid) {
+          if (newTaskProps.name && newTaskProps.name.length > 50) {
+            const taskLength = newTaskProps.name.length;
+            newTaskProps.name = newTaskProps.name.slice(0, 50);
+
+            toastType = "warning";
+            toastMessage = `Added new toast with exceeding length (received ${taskLength})`;
+          }
+
+          return {
+            ...task,
+            ...newTaskProps,
+          };
+        }
 
         return task;
       })
@@ -76,8 +94,8 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
 
     toastContext.addNewToast({
       id: "",
-      message: "Successfully add new toast",
-      type: "success",
+      message: toastMessage,
+      type: toastType,
     });
   };
 

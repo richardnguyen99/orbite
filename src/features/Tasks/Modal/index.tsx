@@ -80,9 +80,14 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
     setTask((prev) => ({ ...prev, notes: newValue }));
   };
 
-  const formSubmitHandler = useCallback<FormEventHandler>((e) => {
-    e.preventDefault();
-  }, []);
+  const formSubmitHandler = useCallback<FormEventHandler>(
+    (e) => {
+      e.preventDefault();
+      updateTaskHandler();
+      setOpen(false);
+    },
+    [setOpen, updateTaskHandler]
+  );
 
   return (
     <Transition.Root show={open} as={Fragment}>
