@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@primer/octicons-react";
 
@@ -32,6 +33,7 @@ interface Props {
 }
 
 const defaultTask = {
+  uid: uuidv4(),
   name: "",
   category: "",
   prior: 1,
@@ -53,7 +55,7 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
   }, [task, taskContext, setOpen]);
 
   const updateTaskHandler = useCallback(() => {
-    taskContext.onUpdateTask(task.name, task);
+    taskContext.onUpdateTask(task.uid, task);
     //setTask(defaultTask);
     setOpen(false);
   }, [setOpen, task, taskContext]);

@@ -31,7 +31,7 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
   };
 
   const onUpdateItem = (newTask: Partial<TaskProps>) => {
-    taskContext.onUpdateTask(task.name, { ...newTask });
+    taskContext.onUpdateTask(task.uid, { ...newTask });
   };
 
   const onUpdateItemName = (newName: string) => {

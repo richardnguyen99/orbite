@@ -5,7 +5,12 @@ export interface InputProps {
 
 export interface TaskProps {
   /**
-   * A brief name that describes what to do for this task
+   * A short unique ID for better querying a task.
+   */
+  uid: string;
+
+  /**
+   * A brief name that describes what to do for this task.
    *
    * @public
    */
