@@ -54,10 +54,11 @@ const TaskItemHeading: FC<Props & HTMLAttributes<HTMLHeadingElement>> = ({
       );
       titleRef.current.innerHTML = capturedContent;
 
-      if (onNameChange && title !== initialName) onNameChange(capturedContent);
+      if (capturedContent !== initialName && onNameChange)
+        onNameChange(capturedContent);
       setTitle(capturedContent);
     }
-  }, [initialName, onNameChange, title]);
+  }, [initialName, onNameChange]);
 
   const getContentEditableClassNames = () => {
     return classNames({
