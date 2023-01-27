@@ -1,12 +1,13 @@
 import Group from "./Group";
 import Item from "./Item";
-import Provider, { TaskContext } from "./TaskProvider";
+import Provider from "./TaskProvider";
+import Context from "./TaskContext";
 
 const exported = {
   Group,
   Item,
   Provider,
-  Context: TaskContext,
+  Context,
 };
 
 export default exported;

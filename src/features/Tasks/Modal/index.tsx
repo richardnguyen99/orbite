@@ -18,7 +18,7 @@ import HeadingPanel from "./HeadingPanel";
 import DueDate from "./DueDate";
 import Category from "./Category";
 
-import { TaskContext } from "../TaskProvider";
+import TaskContext from "../TaskContext";
 import { TaskProps } from "../type";
 import AddTaskNameInput from "./Input";
 import AddTaskSelect from "./Select";

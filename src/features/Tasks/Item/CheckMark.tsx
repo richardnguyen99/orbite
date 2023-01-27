@@ -8,7 +8,7 @@ import {
   useContext,
 } from "react";
 
-import { TaskContext } from "../TaskProvider";
+import TaskContext from "../TaskContext";
 import { TaskProps } from "../type";
 
 interface Props {

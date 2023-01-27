@@ -1,27 +1,12 @@
-import { createContext, useContext } from "react";
+import { useContext } from "react";
 
 import { CFC } from "@typings/react";
 import { useLocalStorage } from "@hooks/use-local-storage";
 import ToastContext from "@features/Toast/Context";
 import { ToastType } from "@features/Toast/types";
 
-import { TaskProps } from "./type";
-
-export interface TaskProviderProps {
-  initialTasks?: TaskProps[];
-}
-
-export interface TaskContextProps {
-  tasks: TaskProps[];
-  onDeleteTask: (taskName: string) => void;
-  onAddTask: (task: TaskProps) => void;
-  onUpdateTask: (taskName: string, newTaskProps: Partial<TaskProps>) => void;
-  onUpdateTasks: (newTasks: TaskProps[]) => void;
-}
-
-export const TaskContext = createContext<TaskContextProps>(
-  {} as TaskContextProps
-);
+import TaskContext from "./TaskContext";
+import type { TaskProps, TaskProviderProps } from "./type";
 
 const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
   children,

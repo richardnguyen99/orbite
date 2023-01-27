@@ -8,7 +8,7 @@ import { CFC } from "@typings/react";
 
 import { TaskItemProps, TaskProps } from "../type";
 import { useShadow } from "../use-shadow";
-import { TaskContext } from "../TaskProvider";
+import TaskContext from "../TaskContext";
 
 import EditableHeading from "./EditableHeading";
 import CheckMark from "./CheckMark";

@@ -4,6 +4,17 @@ export interface InputProps {
   onUpdateValue: (newValue: string) => void;
 }
 
+export interface TaskProviderProps {
+  initialTasks?: TaskProps[];
+}
+
+export interface TaskContextProps {
+  tasks: TaskProps[];
+  onDeleteTask: (taskName: string) => void;
+  onAddTask: (task: TaskProps) => void;
+  onUpdateTask: (taskName: string, newTaskProps: Partial<TaskProps>) => void;
+  onUpdateTasks: (newTasks: TaskProps[]) => void;
+}
 export interface TaskProps {
   /**
    * A short unique ID for better querying a task.

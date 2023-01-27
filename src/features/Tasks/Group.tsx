@@ -4,7 +4,7 @@ import { Reorder } from "framer-motion";
 import { CFC } from "@typings/react";
 import { TaskProps } from "./type";
 import TaskItem from "./Item";
-import { TaskContext } from "./TaskProvider";
+import TaskContext from "./TaskContext";
 
 import AddNewTaskButton from "./AddTaskButton";
 import TaskActionDropdown from "./TaskActionDropdown";
