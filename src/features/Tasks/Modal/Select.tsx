@@ -19,7 +19,7 @@ const Pill: CFC<HTMLDivElement> = ({ children, className }) => {
   );
 };
 
-const priorities = [
+export const priorities = [
   {
     value: 1,
     component: (

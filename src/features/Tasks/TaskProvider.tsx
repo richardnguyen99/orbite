@@ -52,9 +52,13 @@ const TaskProvider: CFC<HTMLElement, TaskProviderProps> = ({
     });
   };
 
-  const updateTask = (taskId: string, newTaskProps: Partial<TaskProps>) => {
+  const updateTask = (
+    taskId: string,
+    newTaskProps: Partial<TaskProps>,
+    message = ""
+  ) => {
     let toastType: ToastType = "success";
-    let toastMessage = "Successfully updated new toast";
+    let toastMessage = message || "Successfully updated new toast";
 
     setTasks((prev) =>
       prev.map((task) => {

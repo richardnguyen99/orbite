@@ -30,16 +30,16 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
     taskContext.onDeleteTask(task.name);
   };
 
-  const onUpdateItem = (newTask: Partial<TaskProps>) => {
-    taskContext.onUpdateTask(task.uid, { ...newTask });
+  const onUpdateItem = (newTask: Partial<TaskProps>, message = "") => {
+    taskContext.onUpdateTask(task.uid, { ...newTask }, message);
   };
 
   const onUpdateItemName = (newName: string) => {
-    onUpdateItem({ name: newName });
+    onUpdateItem({ name: newName }, "Successfully updated item's name");
   };
 
   const onUpdateItemStatus = (newStatus: boolean) => {
-    onUpdateItem({ finished: newStatus });
+    onUpdateItem({ finished: newStatus }, "Successfully updated item's status");
   };
 
   const onUpdateDailyState = () => {
@@ -100,6 +100,7 @@ const TaskItem: CFC<HTMLDivElement, TaskItemProps> = ({ task }) => {
             </button>
           </Tooltip>
         </div>
+        <div></div>
       </Reorder.Item>
       <TaskModal
         open={openUpdateModal}

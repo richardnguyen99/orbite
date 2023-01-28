@@ -12,7 +12,11 @@ export interface TaskContextProps {
   tasks: TaskProps[];
   onDeleteTask: (taskName: string) => void;
   onAddTask: (task: TaskProps) => void;
-  onUpdateTask: (taskName: string, newTaskProps: Partial<TaskProps>) => void;
+  onUpdateTask: (
+    taskName: string,
+    newTaskProps: Partial<TaskProps>,
+    message?: string
+  ) => void;
   onUpdateTasks: (newTasks: TaskProps[]) => void;
 }
 export interface TaskProps {
