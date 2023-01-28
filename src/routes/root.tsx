@@ -41,15 +41,7 @@ const Root: CFC<HTMLDivElement> = () => {
         <div className="px-8">
           <GreetingWithTime />
           <Section.Root id="root-categories-section" title="CATEGORIES">
-            <Carousel
-              items={tasks.map((task, i) => (
-                <Carousel.Card
-                  key={i}
-                  amount={task.amount}
-                  name={task.taskName}
-                />
-              ))}
-            />
+            <Carousel />
             <div className=" overflow-x-scroll">
               <div className="flex items-flex space-x-4"></div>
             </div>

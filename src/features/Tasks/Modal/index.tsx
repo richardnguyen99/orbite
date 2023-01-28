@@ -19,7 +19,7 @@ import DueDate from "./DueDate";
 import Category from "./Category";
 
 import TaskContext from "../TaskContext";
-import { TaskProps } from "../type";
+import { CategoryType, TaskProps } from "../type";
 import AddTaskNameInput from "./Input";
 import AddTaskSelect from "./Select";
 import Description from "./Description";
@@ -31,10 +31,10 @@ interface Props {
   setOpen: (state: boolean) => void;
 }
 
-const defaultTask = {
+const defaultTask: TaskProps = {
   uid: uuidv4(),
   name: "",
-  category: "",
+  category: "personal",
   prior: 1,
   finished: false,
   dueDate: undefined,
@@ -63,7 +63,7 @@ const TaskModal: FC<Props> = ({ open, setOpen, type, task: _task }) => {
     setTask((prev) => ({ ...prev, name: newName }));
   };
 
-  const setCategory = (newValue: string) => {
+  const setCategory = (newValue: CategoryType) => {
     setTask((prev) => ({ ...prev, category: newValue }));
   };
 

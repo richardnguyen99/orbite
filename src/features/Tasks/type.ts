@@ -1,3 +1,10 @@
+export type CategoryType =
+  | "work"
+  | "personal"
+  | "school"
+  | "chores"
+  | "special";
+
 export interface InputProps {
   type: "add" | "update";
   value: string;
@@ -37,7 +44,7 @@ export interface TaskProps {
    *
    * @public
    */
-  category: string;
+  category: CategoryType;
 
   /**
    * Determine the priority level of this task when comparing to other tasks.

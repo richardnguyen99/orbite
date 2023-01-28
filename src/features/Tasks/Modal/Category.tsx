@@ -4,39 +4,43 @@ import { DotFillIcon, FeedStarIcon } from "@primer/octicons-react";
 import Dropdown from "@components/Dropdown";
 import classNames from "classnames";
 import { getRingClassNames } from "./util";
+import { CategoryType } from "../type";
+import { capitalize } from "@utils/capitalize";
 
 const items = [
   {
-    name: "Work",
+    name: "work",
     component: <DotFillIcon className="fill-red-500 mr-3" />,
   },
   {
-    name: "Personal",
+    name: "personal",
     component: <DotFillIcon className="fill-green-500 mr-3" />,
   },
   {
-    name: "School",
+    name: "school",
     component: <DotFillIcon className="fill-sky-500 mr-3" />,
   },
   {
-    name: "Chores",
+    name: "chores",
     component: <DotFillIcon className="fill-indigo-500 mr-3" />,
   },
   {
-    name: "Special",
+    name: "special",
     component: <FeedStarIcon className="fill-yellow-500 mr-3" />,
   },
 ];
 
 export interface Props {
   category?: string;
-  onSelectCategory: (newValue: string) => void;
+  onSelectCategory: (newValue: CategoryType) => void;
   type: "add" | "update";
 }
 
 const Category: FC<Props> = ({ category, onSelectCategory, type }) => {
   const getSelectionDisplayName = () => {
-    return category !== "" ? category : "Select one";
+    return typeof category !== "undefined"
+      ? capitalize(category)
+      : "Select one";
   };
 
   return (
@@ -61,11 +65,11 @@ const Category: FC<Props> = ({ category, onSelectCategory, type }) => {
             {items.map((item, _) => (
               <Dropdown.Item
                 key={`dropdownitem-${item.name}`}
-                onClick={() => onSelectCategory(item.name)}
+                onClick={() => onSelectCategory(item.name as CategoryType)}
               >
                 <div className="inline-flex items-center">
                   {item.component}
-                  {item.name}
+                  {`${item.name[0].toUpperCase()}${item.name.slice(1)}`}
                 </div>
               </Dropdown.Item>
             ))}

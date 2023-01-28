@@ -1,17 +1,69 @@
-import { ReactElement, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import TaskContext from "@features/Tasks/TaskContext";
 import { CFC } from "@typings/react";
 
 import CarouselCard from "./Card";
+import { CategoryType } from "@features/Tasks/type";
 
-export interface CarouselProps {
-  //items: React.FunctionComponent<HTMLAttributes<HTMLDivElement> & object>[];
-  items: ReactElement[];
-}
-
-const Carousel: CFC<HTMLDivElement, CarouselProps> = ({ items, ...rest }) => {
+const Carousel: CFC<HTMLDivElement, object> = ({ ...rest }) => {
   const taskContext = useContext(TaskContext);
+
+  const [categoryCounter, setCategoryCounter] = useState<{
+    [key in CategoryType]: {
+      done: number;
+      total: number;
+    };
+  }>({
+    work: {
+      done: 0,
+      total: 0,
+    },
+    personal: {
+      done: 0,
+      total: 0,
+    },
+    school: {
+      done: 0,
+      total: 0,
+    },
+    chores: {
+      done: 0,
+      total: 0,
+    },
+    special: {
+      done: 0,
+      total: 0,
+    },
+  });
+
+  useEffect(() => {
+    const newCategoryCounter = taskContext.tasks.reduce(
+      (counter, task) => {
+        if (!counter[task.category]) {
+          counter[task.category] = {
+            done: 0,
+            total: 0,
+          };
+        }
+
+        counter[task.category]["total"]++;
+
+        if (task.finished) counter[task.category]["done"]++;
+
+        return counter;
+      },
+      {} as Record<
+        CategoryType,
+        {
+          done: number;
+          total: number;
+        }
+      >
+    );
+
+    setCategoryCounter(newCategoryCounter);
+  }, [taskContext.tasks]);
 
   return (
     <div>
@@ -19,13 +71,17 @@ const Carousel: CFC<HTMLDivElement, CarouselProps> = ({ items, ...rest }) => {
         {...rest}
         className="relative flex space-x-4 overflow-x-scroll no-scrollbar w-screen ml-[50%] -translate-x-2/4 "
       >
-        {items.map((item, i) => {
+        {Object.keys(categoryCounter).map((key, i) => {
           return (
             <div
               key={i}
               className="first:pl-8 lg:first:pl-[calc(50vw-48rem/2+2rem)]"
             >
-              {item}
+              <CarouselCard
+                finished={categoryCounter[key as CategoryType]["done"]}
+                amount={categoryCounter[key as CategoryType]["total"]}
+                name={key}
+              />
             </div>
           );
         })}
