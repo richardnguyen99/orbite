@@ -1,5 +1,8 @@
+import { ReactElement, useContext } from "react";
+
+import TaskContext from "@features/Tasks/TaskContext";
 import { CFC } from "@typings/react";
-import { ReactElement, cloneElement } from "react";
+
 import CarouselCard from "./Card";
 
 export interface CarouselProps {
@@ -8,6 +11,8 @@ export interface CarouselProps {
 }
 
 const Carousel: CFC<HTMLDivElement, CarouselProps> = ({ items, ...rest }) => {
+  const taskContext = useContext(TaskContext);
+
   return (
     <div>
       <div
@@ -15,16 +20,12 @@ const Carousel: CFC<HTMLDivElement, CarouselProps> = ({ items, ...rest }) => {
         className="relative flex space-x-4 overflow-x-scroll no-scrollbar w-screen ml-[50%] -translate-x-2/4 "
       >
         {items.map((item, i) => {
-          const enhancedItem = cloneElement(item, {
-            style: { boxSizing: "content-box" },
-          });
-
           return (
             <div
               key={i}
               className="first:pl-8 lg:first:pl-[calc(50vw-48rem/2+2rem)]"
             >
-              {enhancedItem}
+              {item}
             </div>
           );
         })}

@@ -1,14 +1,31 @@
 import { CFC } from "@typings/react";
+import { useCallback } from "react";
 
-const CarouselCard: CFC<HTMLDivElement, { amount: number; name: string }> = ({
+export interface CarouselCardProps {
+  amount: number;
+  name: string;
+  onClickCallback?: () => void | undefined;
+}
+
+const CarouselCard: CFC<HTMLDivElement, CarouselCardProps> = ({
   amount,
   name,
+  onClickCallback,
   ...rest
 }) => {
+  const onClickHandler = useCallback(() => {
+    if (
+      typeof onClickCallback !== "undefined" &&
+      typeof onClickCallback === "function"
+    )
+      onClickCallback();
+  }, [onClickCallback]);
+
   return (
     <div
       {...rest}
-      className="block relative min-w-[280px] min-h-[200px] rounded-lg p-4  bg-slate-300/75 dark:bg-slate-900 overflow-x-scroll box-content"
+      onClick={onClickHandler}
+      className="block relative box-content min-w-[280px] min-h-[200px] rounded-lg p-4  bg-slate-300/75 dark:bg-slate-900 overflow-x-scroll"
     >
       <p className="text-sm font-thin uppercase">
         {amount} <span className="tracking-widest ml-2">tasks</span>
